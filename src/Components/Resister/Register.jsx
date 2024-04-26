@@ -11,7 +11,7 @@ import Auth from '../../Firebase/Firebase.config'
 
  const  Register = () => {
   const {AuthRegister,openSuccessModal,setModelMessage,setModelHead,setUser,
-    setLoading} = useContext(AuthContext)
+    setLoading, openErrorModal} = useContext(AuthContext)
 
 
   const handleRegister = event =>{
@@ -21,6 +21,31 @@ import Auth from '../../Firebase/Firebase.config'
     const name =form.name.value ; 
     const email = form.email.value ;
     const password = form.password.value ;
+
+    if (password.length < 6) {
+      setModelMessage("Password must have at least 6 characters.");
+  setModelHead("ERROR")
+  openErrorModal()
+      return ;
+      
+  } else if (!/[A-Z]/.test(password)) {
+    setModelMessage("Password must have one uppercase letter.");
+    setModelHead("ERROR")
+    openErrorModal()
+      return;
+  } else if (!/[a-z]/.test(password)) {
+    setModelMessage("Password must have  one lowercase letter.");
+    setModelHead("ERROR")
+    openErrorModal()
+      return;
+  } 
+  
+
+
+
+
+
+
     const photoURL = form.photoURL.value
     console.log(name,email,photoURL,password)
 

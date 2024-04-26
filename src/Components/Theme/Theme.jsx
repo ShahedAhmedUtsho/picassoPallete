@@ -24,6 +24,7 @@ const DarkMode = () => {
     const htmlElement = document.querySelector('html');
     if (isDarkTheme) {
       htmlElement.classList.add('dark');
+      
     } else {
       htmlElement.classList.remove('dark');
     }

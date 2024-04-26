@@ -7,20 +7,21 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import DarkMode from "../Theme/Theme";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-
+import logo from '../../assist/images/light.svg' ;
+import dark from '../../assist/images/Dark.svg'
 const Header = () => {
   const {logOut,user} =useContext(AuthContext)
-    const [toggle, setToggle] = useState(true)
-
-
+    // const [toggle, setToggle] = useState(true)
+   
+   
 
 
     const link = <>
-    <NavLink className={`navlink`} to="/">Home</NavLink>
-    <NavLink className={`navlink`} to="/login">login</NavLink>
-    <NavLink className={`navlink`} to="/register">register</NavLink>
-    <NavLink className={`navlink`} to="/allartandcraftitems">All Art & craft Items</NavLink>
-    <NavLink className={`navlink`} to="/addcraftitem">Add Craft Item</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/">Home</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/login">login</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/register">register</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/allartandcraftitems">All Art & craft Items</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/addcraftitem">Add Craft Item</NavLink>
     {
       user? <NavLink className={`navlink`} to="/myartandcraftlist">My Art&Craft List</NavLink> : null
     }
@@ -32,7 +33,7 @@ const Header = () => {
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand>
-           <p>LOGO</p>
+           <img className="md:max-w-40 " src={logo} alt="" /> 
           </Navbar.Brand>
           <Navbar.Divider></Navbar.Divider>
           <Navbar.Container
@@ -55,8 +56,8 @@ const Header = () => {
      
 
      {
-      user? <img src={user.photoURL} className="w-10 object-cover rounded-lg border-[1px] border-blue-200 h-10 p-1" alt="" /> : 
-      <User  className="text-red-500 px-2 py-1 w-10 h-10 border-[1px] border-black rounded-sm" />
+      user? <img src={user.photoURL} className="w-10 object-cover rounded-lg border-[1px] border-blue-200  dark:border-[#fff0] h-10 p-1" alt="" /> : 
+      <User  className="dark:text-yellow-400  text-yellow-500 px-2 py-1 w-10 h-10  " />
      }
            
            

@@ -36,7 +36,17 @@ const closeModal = () => {
 
 
 // Success model 
+// error model
+const [isErrorOpen, setIsErrorOpen] = useState(false)
+const openErrorModal = () => {
+  setIsErrorOpen(true)
+}
+const closeErrorModal = () => {
+  setIsErrorOpen(false)
+}
 
+
+//error model
 // preserve login  Auth
 useEffect(() => {
    const unsubscribe = onAuthStateChanged (Auth, currentUser => {
@@ -86,7 +96,10 @@ const ShareValue = {AuthRegister,
     modelHead,
     modelMessage,
     openSuccessModal,
-    loading,setLoading
+    loading,setLoading,
+    closeErrorModal,openErrorModal,isErrorOpen , 
+
+    
 
 }
 
