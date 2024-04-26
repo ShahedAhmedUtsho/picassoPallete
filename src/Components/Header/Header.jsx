@@ -2,12 +2,13 @@
 "use client";
 
 import { MagnifyingGlass,User } from "phosphor-react";
-import { Navbar, Button,Tooltip,Toggle } from "keep-react";
+import { Navbar, Button,Tooltip,Toggle,Avatar } from "keep-react";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import DarkMode from "../Theme/Theme";
 
 const Header = () => {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(true)
 
 
 
@@ -23,7 +24,7 @@ const Header = () => {
     
     </>
   return (
-    <Navbar className="header my-2" fluid={true}>
+    <Navbar className="header  bg-transparent my-2" fluid={true}>
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand>
@@ -46,14 +47,18 @@ const Header = () => {
         <Navbar.Container className="flex gap-2">
 {/* Tooltip */}
 {  <Tooltip placement="bottom" trigger="click" showArrow={false}>
-      <Tooltip.Action className=" bg-transparent p-0">
-      <Button color="secondary" variant="outline" shape="icon">
+      <Tooltip.Action  className=" bg-transparent p-0">
+    
+           
+            <User  className="text-red-500 px-2 py-1 w-10 h-10 border-[1px] border-black rounded-sm" />
+           
             
-            <User size={20} />
             
+                
             
-            </Button>
+
         </Tooltip.Action>
+
       <Tooltip.Content className=" bg-transparent border-[1px] rounded-[5px]" >
        
   
@@ -64,9 +69,7 @@ const Header = () => {
         <div className="mt-2 capitalize">
             <p className="text-sm mb-1">theme </p>
             <div className="flex justify-between items-center text-sm gap-2 ">
-                <p>light</p>
-                <Toggle bgColor="slate" label="Slate" size="sm" onChange={setToggle} />
-                <p>dark</p>
+               
 
             </div>
             
@@ -79,7 +82,7 @@ const Header = () => {
 
 
 
-
+<DarkMode></DarkMode>
 
           
         

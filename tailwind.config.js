@@ -1,5 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 import keepPreset from "keep-react/preset";
+
+
+
+
+
+
 export default {
   content: [
     "./index.html",
@@ -7,6 +13,7 @@ export default {
     "node_modules/keep-react/**/*.{js,jsx,ts,tsx}"
   ],
   presets: [keepPreset],
+  darkMode:'selector',
   theme: {
     extend: {},
   },

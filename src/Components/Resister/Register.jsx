@@ -1,8 +1,8 @@
 
 
 'use client'
-import { Envelope, FacebookLogo, GoogleLogo, Lock ,User ,Image} from 'phosphor-react'
-import { Button, Card, Divider, Icon, Input, Label } from 'keep-react'
+import { Envelope, Lock ,User ,Image} from 'phosphor-react'
+import { Button, Card, Icon, Input, Label } from 'keep-react'
 import { Link } from 'react-router-dom'
 
  const  Register = () => {
