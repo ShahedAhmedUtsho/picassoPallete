@@ -21,7 +21,9 @@ const Header = () => {
     <NavLink className={`navlink`} to="/register">register</NavLink>
     <NavLink className={`navlink`} to="/allartandcraftitems">All Art & craft Items</NavLink>
     <NavLink className={`navlink`} to="/addcraftitem">Add Craft Item</NavLink>
-    <NavLink className={`navlink`} to="/myartandcraftlist">My Art&Craft List</NavLink>
+    {
+      user? <NavLink className={`navlink`} to="/myartandcraftlist">My Art&Craft List</NavLink> : null
+    }
     
     
     </>
@@ -73,12 +75,11 @@ const Header = () => {
         
         <Link to="profile" className="text-xs  font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] ">Profile</Link>
         <div className="mt-2 capitalize">
-            <p className="text-sm mb-1">theme </p>
-            <div className="flex justify-between items-center text-sm gap-2 ">
-              <p onClick={logOut}>logOut</p>
-               
+        <div className="text-xs  font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] "> 
 
-            </div>
+        
+        <p className="text-xs underline btn" onClick={logOut}>logOut</p></div>
+           
             
 
         </div>

@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         element:<PrivetRoute><AddCraftItem></AddCraftItem></PrivetRoute>
       },{
         path:'/myartandcraftlist',
-        element:<Myartandcraftlis></Myartandcraftlis>,
+        element:<PrivetRoute><Myartandcraftlis></Myartandcraftlis></PrivetRoute>,
       },{
         path:'/',
         element:<Home></Home>,
