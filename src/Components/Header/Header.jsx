@@ -4,10 +4,12 @@
 import { MagnifyingGlass,User } from "phosphor-react";
 import { Navbar, Button,Tooltip,Toggle,Avatar } from "keep-react";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DarkMode from "../Theme/Theme";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
+  const {logOut,user} =useContext(AuthContext)
     const [toggle, setToggle] = useState(true)
 
 
@@ -48,9 +50,13 @@ const Header = () => {
 {/* Tooltip */}
 {  <Tooltip placement="bottom" trigger="click" showArrow={false}>
       <Tooltip.Action  className=" bg-transparent p-0">
-    
+     
+
+     {
+      user? <img src={user.photoURL} className="w-10 object-cover rounded-lg border-[1px] border-blue-200 h-10 p-1" alt="" /> : 
+      <User  className="text-red-500 px-2 py-1 w-10 h-10 border-[1px] border-black rounded-sm" />
+     }
            
-            <User  className="text-red-500 px-2 py-1 w-10 h-10 border-[1px] border-black rounded-sm" />
            
             
             
@@ -69,6 +75,7 @@ const Header = () => {
         <div className="mt-2 capitalize">
             <p className="text-sm mb-1">theme </p>
             <div className="flex justify-between items-center text-sm gap-2 ">
+              <p onClick={logOut}>logOut</p>
                
 
             </div>
