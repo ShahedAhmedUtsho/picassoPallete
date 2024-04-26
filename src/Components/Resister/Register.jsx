@@ -10,7 +10,8 @@ import { updateProfile } from 'firebase/auth'
 import Auth from '../../Firebase/Firebase.config'
 
  const  Register = () => {
-  const {AuthRegister} = useContext(AuthContext)
+  const {AuthRegister,openSuccessModal,setModelMessage,setModelHead,setUser,
+    setLoading} = useContext(AuthContext)
 
 
   const handleRegister = event =>{
@@ -31,13 +32,27 @@ AuthRegister(email,password)
   updateProfile(Auth.currentUser, {
     displayName: name, photoURL: photoURL ,
   }).then(() => {
-    console.log("name and password upadated")
+    console.log("name and password upadated");
+    form.reset()
+  setModelHead("Account created successfully")
+  setModelMessage(
+    <>
+      Welcome {' '}
+      <span className='font-semibold text-blue-500'>
+        {res.user.displayName}
+      </span>
+    
+    </>
+  );
+  setUser(res.user)
+  
+  openSuccessModal()
   }).catch((error) => {
     console.log(error , "from update profile")
   });
   
 
-
+  
 
 
 })

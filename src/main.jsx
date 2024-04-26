@@ -13,6 +13,7 @@ import Register from './Components/Resister/Register.jsx';
 import AllArtCraftItems from './Components/All Art & craft Items/All Art & craft Items.jsx';
 import AddCraftItem from './Components/Add Craft Item/AddCraftItem.jsx';
 import Myartandcraftlis from './Components/Myartandcraftlis/Myartandcraftlis.jsx';
+import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 
 
 
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
         element:<AllArtCraftItems></AllArtCraftItems>,
       },{
         path:'/addcraftitem',
-        element:<AddCraftItem></AddCraftItem>,
+        element:<PrivetRoute><AddCraftItem></AddCraftItem></PrivetRoute>
       },{
         path:'/myartandcraftlist',
         element:<Myartandcraftlis></Myartandcraftlis>,

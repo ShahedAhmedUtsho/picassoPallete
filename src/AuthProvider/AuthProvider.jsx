@@ -8,14 +8,42 @@ import { Password } from 'phosphor-react';
 
 export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
-
+// auth USer 
 const [user,setUser] = useState(null)
 
+// set loading 
 
+const [loading,setLoading] =useState(true) ;
+
+
+// set loading 
+
+
+
+
+// model model  
+
+const [modelHead,setModelHead] = useState("");
+const [modelMessage,setModelMessage] = useState("");
+
+const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+const openSuccessModal = () => {
+  setIsSuccessOpen(true)
+}
+const closeModal = () => {
+  setIsSuccessOpen(false)
+}
+
+
+// Success model 
+
+// preserve login  Auth
 useEffect(() => {
    const unsubscribe = onAuthStateChanged (Auth, currentUser => {
     setUser(currentUser) ;
+    setLoading(false)
     console.log(currentUser)
+   
    })
 
   return () => {
@@ -26,14 +54,17 @@ useEffect(() => {
 
 
 const AuthRegister = (email,Password) =>{
+    setLoading(true)
     return createUserWithEmailAndPassword(Auth,email,Password)
 
 }
 const AuthLogIn = (email,password) =>{
+    setLoading(true)
     return signInWithEmailAndPassword(Auth,email,password)
 }
 
 const logOut = async() => {
+    setLoading(true)
     return await signOut(Auth).then(() => {
         console.log('Sign-out successful.')
       }).catch((error) => {
@@ -46,7 +77,16 @@ const logOut = async() => {
 const ShareValue = {AuthRegister,
     logOut,
     user,
-    AuthLogIn
+    AuthLogIn,
+    closeModal,
+    isSuccessOpen,
+    setIsSuccessOpen,
+    setModelMessage,
+    setModelHead,
+    modelHead,
+    modelMessage,
+    openSuccessModal,
+    loading,setLoading
 
 }
 

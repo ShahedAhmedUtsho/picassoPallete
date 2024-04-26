@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
  const Login = () => {
-const {AuthLogIn,user} = useContext(AuthContext)
+const {AuthLogIn,user,closeModal,setUser,isSuccessOpen,openSuccessModal,setIsSuccessOpen,setModelMessage,setModelHead,modelHead,modelMessage,setLoading,loading} = useContext(AuthContext)
 
   const handleLogin = event =>{
     event.preventDefault()
@@ -28,6 +28,23 @@ AuthLogIn(email,password)
 .then(res=>{
   console.log(res.user ,"login Successfully")
   form.reset()
+  setUser(res.user)
+  
+setModelHead("Login Successfully")
+setModelMessage(
+  <>
+    Welcome back{' '}
+    <span className='font-semibold text-blue-500'>
+      {res.user.displayName}
+    </span>
+  </>
+);
+openSuccessModal()
+
+
+
+
+
 })
 .catch(error => {
 console.log("error from login " , error.message)
