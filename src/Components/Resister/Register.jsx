@@ -4,8 +4,56 @@
 import { Envelope, Lock ,User ,Image} from 'phosphor-react'
 import { Button, Card, Icon, Input, Label } from 'keep-react'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../../AuthProvider/AuthProvider'
+import { updateProfile } from 'firebase/auth'
+import Auth from '../../Firebase/Firebase.config'
 
  const  Register = () => {
+  const {AuthRegister} = useContext(AuthContext)
+
+
+  const handleRegister = event =>{
+ 
+    event.preventDefault()
+    const form = event.target ;
+    const name =form.name.value ; 
+    const email = form.email.value ;
+    const password = form.password.value ;
+    const photoURL = form.photoURL.value
+    console.log(name,email,photoURL,password)
+
+
+
+AuthRegister(email,password)
+.then(res=>{
+  console.log(res.user);
+  updateProfile(Auth.currentUser, {
+    displayName: name, photoURL: photoURL ,
+  }).then(() => {
+    console.log("name and password upadated")
+  }).catch((error) => {
+    console.log(error , "from update profile")
+  });
+  
+
+
+
+
+})
+.catch(error=> {
+  const err = error.message ;
+  console.log(err)
+})
+
+
+
+
+
+
+
+
+  }
   return (
     <Card className="max-w-sm">
       <Card.Content className="space-y-3">
@@ -15,9 +63,9 @@ import { Link } from 'react-router-dom'
         </Card.Header>
        
         
-        <form className="space-y-2">
+        <form onSubmit={handleRegister} className="space-y-2">
         <fieldset className="space-y-1">
-            <Label htmlFor="name">Email*</Label>
+            <Label htmlFor="name">Name*</Label>
             <div className="relative">
               <Input name='name' id="name" type="text" placeholder="Enter full name" className="ps-11" />
               <Icon>
@@ -35,7 +83,7 @@ import { Link } from 'react-router-dom'
             </div>
           </fieldset>
           <fieldset className="space-y-1">
-            <Label  htmlFor="photoURL">Email*</Label>
+            <Label  htmlFor="photoURL">photoURL*</Label>
             <div className="relative">
               <Input id="photoURL" type="text" placeholder="Enter PhotoURL" className="ps-11" />
               <Icon>

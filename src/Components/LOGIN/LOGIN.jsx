@@ -5,6 +5,15 @@ import { Button, Card, Divider, Icon, Input, Label } from 'keep-react'
 import { Link } from 'react-router-dom'
 
  const Login = () => {
+
+
+  const handleLogin = event =>{
+    event.preventDefault()
+    const form = event.target ;
+    const email = form.email.value ;
+    const password = form.password.value ;
+    console.log(email,password)
+  }
   return (
     <Card className="max-w-sm">
       <Card.Content className="space-y-3">
@@ -14,11 +23,11 @@ import { Link } from 'react-router-dom'
         </Card.Header>
        
         
-        <form className="space-y-2">
+        <form onSubmit={handleLogin} className="space-y-2">
           <fieldset className="space-y-1">
             <Label htmlFor="email">Email*</Label>
             <div className="relative">
-              <Input id="email" type="email" placeholder="Enter email" className="ps-11" />
+              <Input name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
               <Icon>
                 <Envelope size={19} color="#AFBACA" />
               </Icon>
@@ -27,7 +36,7 @@ import { Link } from 'react-router-dom'
           <fieldset className="space-y-1">
             <Label htmlFor="password">Password*</Label>
             <div className="relative">
-              <Input id="password" placeholder="Enter password" type="password" className="ps-11" />
+              <Input name='password' id="password" placeholder="Enter password" type="password" className="ps-11" />
               <Icon>
                 <Lock size={19} color="#AFBACA" />
               </Icon>
