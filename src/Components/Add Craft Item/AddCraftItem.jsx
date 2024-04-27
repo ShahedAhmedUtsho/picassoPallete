@@ -23,7 +23,8 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
 
  const AddCraftItem = () => {
     const {user, openErrorModal, setModelMessage,
-        setModelHead,} = useContext(AuthContext)
+        setModelHead,
+        openSuccessModal,} = useContext(AuthContext)
     const handleCraft = event =>{
         event.preventDefault() ;
         const form = event.target ; 
@@ -45,7 +46,23 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
         const email = user.email;
         const username = user.displayName;
         const Customization = form.customization.value;
+        if(  Customization.toLowerCase() !== "yes" &&  Customization.toLowerCase() !== "no" ) {
+            setModelHead("Error") ;
+            setModelMessage("stockStatus should  'Customization' / 'no' ")
+            openErrorModal()
+
+            return
+        }
+        
         const stockStatus = form.stockStatus.value ;
+        console.log(stockStatus.toLowerCase())
+        if( stockStatus.toLowerCase() !== "in stock" && stockStatus.toLowerCase() !== "made to order" ) {
+            setModelHead("Error") ;
+            setModelMessage("stockStatus should  'in Stock' / 'Made to Order' ")
+            openErrorModal()
+
+            return
+        }
         const newCraft = {
             email,username,
             photoURL,item_name,subcategory_Name,short_description,
@@ -54,6 +71,44 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
 
         }
         console.log(newCraft)
+
+
+//mongodb & server connection 
+fetch('http://localhost:3000/allartandcraftitems',{
+    method: 'Post',
+    headers:{
+        'content-type' : 'application/json'
+    },
+    body:JSON.stringify(newCraft)
+
+})
+.then(res=>res.json()) 
+.then(data=>{
+    console.log(data)
+    setModelHead("Craft added successfully") ;
+    setModelMessage(" go to all craft to see added item  ")
+    openSuccessModal()
+    form.reset()
+})
+.catch(error=>{
+    console.log(error,"from post server catch")
+})
+
+
+//mongodb & server connection 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
   return (
@@ -126,7 +181,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="processing_time">processing_time (mins)</Label>
+        <Label htmlFor="processing_time">processing_time (Days)</Label>
         <div className="relative">
           <Input required name='processing_time' id="processing_time" placeholder="Enter processing_time" type="number" className="ps-11 rounded-sm" />
           <Icon>

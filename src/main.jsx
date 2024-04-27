@@ -14,12 +14,14 @@ import AllArtCraftItems from './Components/All Art & craft Items/All Art & craft
 import AddCraftItem from './Components/Add Craft Item/AddCraftItem.jsx';
 import Myartandcraftlis from './Components/Myartandcraftlis/Myartandcraftlis.jsx';
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<ErrorPage></ErrorPage>,
     element:<Root></Root>,
     children:[
       {

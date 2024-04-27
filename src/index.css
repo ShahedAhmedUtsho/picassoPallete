@@ -16,3 +16,9 @@
   background-color: #f0abfc;
   color:#000000c2;
 }
+.error{
+  background-image: url(./Svg/ilu.svg);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+}
