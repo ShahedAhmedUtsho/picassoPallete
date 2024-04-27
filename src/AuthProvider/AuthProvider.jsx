@@ -1,14 +1,18 @@
 import  { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword,GithubAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword,GithubAuthProvider, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
 import Auth from '../Firebase/Firebase.config';
-import { Password } from 'phosphor-react';
-import { Navigate } from 'react-router-dom';
 
 
+
+  
 
 export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
+
+
+
+
 // auth USer 
 const [user,setUser] = useState(null)
 
@@ -75,53 +79,6 @@ const AuthLogIn = (email,password) =>{
 }
 
 
-//github 
-
-
-
-
-
-const githubProvider = new GithubAuthProvider()
-const githubLogin = ()=>{
-
-console.log("okey")
-
-  setLoading(true)
-  if(user !== null ){
-  setModelHead("Error");
-  setModelMessage("you are already logged in" );
-  openErrorModal()
-return
-
-  }
-  console.log("you are not logged in")
-
-
-  signInWithPopup(Auth,githubProvider)
-  .then(res=>{
-   const userName = res.user.displayName ;
-    setModelMessage(<span>
-  Welcome  <span className='font-semibold text-[#103cd9b6] capitalize'>{userName}</span>
-</span>)
-
-setModelHead("Login SuccessFull")
-openSuccessModal();
-  })
-  .catch(error => {
-  
-    const err =   error.message ;
-setModelHead("Error");
-setModelMessage({err})
-openErrorModal()
-  })
-   
-    
-
-}
-// google with github
-
-
-
 
 
 const logOut = async() => {
@@ -144,6 +101,7 @@ openSuccessModal()
 
 
 const ShareValue = {AuthRegister,
+  Auth,
     logOut,
     user,
     AuthLogIn,
@@ -157,8 +115,9 @@ const ShareValue = {AuthRegister,
     openSuccessModal,
     loading,setLoading,
     closeErrorModal,openErrorModal,isErrorOpen , 
-    githubLogin
-
+  
+    // navigate ,
+    // location
     
 
 }

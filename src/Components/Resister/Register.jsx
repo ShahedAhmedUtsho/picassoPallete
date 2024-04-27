@@ -3,13 +3,15 @@
 'use client'
 import { Envelope, Lock ,User ,Image} from 'phosphor-react'
 import { Button, Card, Icon, Input, Label } from 'keep-react'
-import { Link,  useNavigate } from 'react-router-dom'
+import { Link,  useLocation,  useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { updateProfile } from 'firebase/auth'
 import Auth from '../../Firebase/Firebase.config'
 
  const  Register = () => {
+  const navigate = useNavigate() ;
+  const location = useLocation();
   const {AuthRegister,openSuccessModal,setModelMessage,setModelHead,setUser,
     setLoading, openErrorModal,user} = useContext(AuthContext)
     const Navigate = useNavigate()
@@ -23,7 +25,7 @@ import Auth from '../../Firebase/Firebase.config'
     const password = form.password.value ;
 
 
-    if(user !== null ){
+    if(user){
   
 
 
@@ -85,6 +87,7 @@ AuthRegister(email,password)
 
   
   openSuccessModal()
+  navigate(location?.state?location.state : '/')
   event.target.reset() 
 Navigate('/')
 
@@ -119,26 +122,26 @@ Navigate('/')
 
   }
   return (
-    <Card className="max-w-sm">
+    <Card className="max-w-sm mx-auto md:my-20 dark:text-fuchsia-50 border-[1px] border-fuchsia-500  dark:bg-[#f8e7fcd3] ">
       <Card.Content className="space-y-3">
         <Card.Header>
-          <Card.Title>Create an account</Card.Title>
+          <Card.Title className='dark:text-fuchsia-900'>Create an account</Card.Title>
           <Card.Description>If you  have  account then just <Link to="/login" className='font-semibold'>Login</Link></Card.Description>
         </Card.Header>
        
         
         <form onSubmit={handleRegister} className="space-y-2">
         <fieldset className="space-y-1">
-            <Label htmlFor="name">Name*</Label>
+            <Label className='dark:text-fuchsia-900' htmlFor="name">Name*</Label>
             <div className="relative">
-              <Input required name='name' id="name" type="text" placeholder="Enter full name" className="ps-11" />
+              <Input required name='name' id="name" type="text" placeholder="Enter full name" className="ps-11 " />
               <Icon>
                 <User size={19} color="#AFBACA" />
               </Icon>
             </div>
           </fieldset>
           <fieldset className="space-y-1">
-            <Label htmlFor="email">Email*</Label>
+            <Label className='dark:text-fuchsia-900' htmlFor="email">Email*</Label>
             <div className="relative">
               <Input required name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
               <Icon>
@@ -147,7 +150,7 @@ Navigate('/')
             </div>
           </fieldset>
           <fieldset   className="space-y-1">
-            <Label  htmlFor="photoURL">photoURL*</Label>
+            <Label className='dark:text-fuchsia-900'  htmlFor="photoURL">photoURL*</Label>
             <div className="relative">
               <Input required id="photoURL" type="text" placeholder="Enter PhotoURL" className="ps-11" />
               <Icon>
@@ -156,7 +159,7 @@ Navigate('/')
             </div>
           </fieldset>
           <fieldset className="space-y-1">
-            <Label htmlFor="password">Password*</Label>
+            <Label className='dark:text-fuchsia-900' htmlFor="password">Password*</Label>
             <div className="relative">
               <Input required id="password" placeholder="Enter password" type="password" className="ps-11" />
               <Icon>
@@ -164,7 +167,7 @@ Navigate('/')
               </Icon>
             </div>
           </fieldset>
-          <Button className="!mt-3 block w-full" size="xs" color="secondary" variant="outline">
+          <Button className="!mt-3    bg-fuchsia-500  text-fuchsia-50 hover:bg-fuchsia-300 hover:text-black block w-full" size="xs" color="secondary" variant="outline">
             Create Account
           </Button>
         </form>

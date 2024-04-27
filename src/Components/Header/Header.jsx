@@ -8,7 +8,6 @@ import { useContext, useState } from "react";
 import DarkMode from "../Theme/Theme";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import logo from '../../assist/images/light.svg' ;
-import dark from '../../assist/images/Dark.svg'
 const Header = () => {
   const {logOut,user} =useContext(AuthContext)
     // const [toggle, setToggle] = useState(true)

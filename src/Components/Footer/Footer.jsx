@@ -60,13 +60,13 @@ const Footer = () => {
           </h2>
           <ul className="text-gray-400 font-medium">
             <li className="mb-4">
-            <Link  to="/topblog" className="hover:underline">
-             Blog
+            <Link to="/allartandcraftitems" className="hover:underline">
+            All Art & craft Items
               </Link>
             </li>
             <li>
-            <Link to="/categories" className="hover:underline">
-             Categories
+            <Link to="/addcraftitem" className="hover:underline">
+            Add Craft Item
               </Link>
             </li>
           </ul>
@@ -105,7 +105,7 @@ const Footer = () => {
         
         <a
         target="_blank"
-          href="https://twitter.com/iam_ShahedAhmedss"
+          href="https://twitter.com/iam_ShahedAhmed"
           className="text-gray-500 hover:text-white ms-5"
         >
           <svg
