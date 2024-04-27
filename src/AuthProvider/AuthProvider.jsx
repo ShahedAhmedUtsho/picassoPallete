@@ -114,7 +114,7 @@ const ShareValue = {AuthRegister,
     modelMessage,
     openSuccessModal,
     loading,setLoading,
-    closeErrorModal,openErrorModal,isErrorOpen , 
+    closeErrorModal,openErrorModal,isErrorOpen ,
   
     // navigate ,
     // location
