@@ -122,17 +122,18 @@ Navigate('/')
 
   }
   return (
-    <Card className="max-w-sm mx-auto md:my-20 dark:text-fuchsia-50 border-[1px] border-fuchsia-500  dark:bg-[#f8e7fcd3] ">
+    <div className=''>
+      <Card className="max-w-sm md:mx-auto md:my-20 my-10 dark:text-fuchsia-50 border-none md:border-[1px] border-fuchsia-500 bg-transparent md:bg-white  md:dark:bg-[#f8e7fcd3] ">
       <Card.Content className="space-y-3">
         <Card.Header>
-          <Card.Title className='dark:text-fuchsia-900'>Create an account</Card.Title>
-          <Card.Description>If you  have  account then just <Link to="/login" className='font-semibold'>Login</Link></Card.Description>
+          <Card.Title className='dark:text-fuchsia-400 md:dark:text-fuchsia-900'>Create an account</Card.Title>
+          <Card.Description className='dark:text-fuchsia-700 md:dark:text-fuchsia-700 '>If you  have  account then just <Link to="/login" className='font-semibold dark:text-fuchsia-400 md:dark:text-fuchsia-700'>Login</Link></Card.Description>
         </Card.Header>
        
         
         <form onSubmit={handleRegister} className="space-y-2">
         <fieldset className="space-y-1">
-            <Label className='dark:text-fuchsia-900' htmlFor="name">Name*</Label>
+            <Label className='dark:text-fuchsia-700 md:dark:text-fuchsia-900' htmlFor="name">Name*</Label>
             <div className="relative">
               <Input required name='name' id="name" type="text" placeholder="Enter full name" className="ps-11 " />
               <Icon>
@@ -141,7 +142,7 @@ Navigate('/')
             </div>
           </fieldset>
           <fieldset className="space-y-1">
-            <Label className='dark:text-fuchsia-900' htmlFor="email">Email*</Label>
+            <Label className='dark:text-fuchsia-700 md:dark:text-fuchsia-900' htmlFor="email">Email*</Label>
             <div className="relative">
               <Input required name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
               <Icon>
@@ -174,6 +175,7 @@ Navigate('/')
         
       </Card.Content>
     </Card>
+    </div>
   )
 }
 

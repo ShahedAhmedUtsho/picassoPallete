@@ -14,9 +14,9 @@ const Root = () => {
             <Success></Success>
             <ErrorModel></ErrorModel>
            
- <div className=" md:container mx-auto  ">
+ <div className=" container mx-auto  ">
 
-    <div className="navi z-50 -mt-5">
+    <div className="navi  w-full  z-50 -mt-5">
     <Header></Header>
     </div>
    

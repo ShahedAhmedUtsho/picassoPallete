@@ -178,17 +178,20 @@ openErrorModal()
 
 
   return (
-    <Card className="max-w-sm mx-auto md:my-20 dark:text-fuchsia-50 border-[1px] border-fuchsia-500  dark:bg-[#f8e7fcd3] ">
+   <div className=''>
+     <Card className="max-w-sm mx-auto md:my-20 my-10 dark:text-fuchsia-50 border-none md:border-[1px] border-fuchsia-500 bg-transparent md:bg-white  
+     md:dark:bg-[#f8e7fcd3]
+      ">
       <Card.Content className="space-y-3">
         <Card.Header>
-          <Card.Title>Sign In</Card.Title>
-          <Card.Description>If you don&apos;t have any account then just <Link to="/register" className='font-semibold'>Register</Link></Card.Description>
+          <Card.Title className='dark:text-fuchsia-400 md:dark:text-fuchsia-900'>Sign In</Card.Title>
+          <Card.Description className='dark:text-fuchsia-700 md:dark:text-fuchsia-700'>If you don&apos;t have any account then just <Link to="/register" className='font-semibold dark:text-fuchsia-400 md:dark:text-fuchsia-700'>Register</Link></Card.Description>
         </Card.Header>
        
         
         <form onSubmit={handleLogin} className="space-y-2">
           <fieldset className="space-y-1">
-            <Label  className='dark:text-fuchsia-900' htmlFor="email">Email*</Label>
+            <Label  className='dark:text-fuchsia-700 md:dark:text-fuchsia-900' htmlFor="email">Email*</Label>
             <div className="relative">
               <Input required name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
               <Icon>
@@ -197,7 +200,7 @@ openErrorModal()
             </div>
           </fieldset>
           <fieldset className="space-y-1">
-            <Label  className='dark:text-fuchsia-900' htmlFor="password">Password*</Label>
+            <Label  className='dark:text-fuchsia-700 md:dark:text-fuchsia-900' htmlFor="password">Password*</Label>
             <div className="relative">
               <Input required name='password' id="password" placeholder="Enter password" type="password" className="ps-11" />
               <Icon>
@@ -222,6 +225,7 @@ openErrorModal()
         </div>
       </Card.Content>
     </Card>
+   </div>
   )
 }
 

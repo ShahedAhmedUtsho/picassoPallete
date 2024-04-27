@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import DarkMode from "../Theme/Theme";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import logo from '../../assist/images/light.svg' ;
+import logoSM from "../../assist/images/pp-high-resolution-logo-transparent.png"
 const Header = () => {
   const {logOut,user} =useContext(AuthContext)
     // const [toggle, setToggle] = useState(true)
@@ -32,7 +33,11 @@ const Header = () => {
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand>
-           <img className="md:max-w-40 " src={logo} alt="" /> 
+           <img className="md:max-w-40 md:block hidden max-w-29 " src={logo} alt="" /> 
+           <img className="md:max-w-40 md:hidden max-w-29 w-16 " src={logoSM} alt="" /> 
+
+
+
           </Navbar.Brand>
           <Navbar.Divider></Navbar.Divider>
           <Navbar.Container
