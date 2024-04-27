@@ -3,7 +3,7 @@
 'use client'
 import { Envelope, Lock ,User ,Image} from 'phosphor-react'
 import { Button, Card, Icon, Input, Label } from 'keep-react'
-import { Link } from 'react-router-dom'
+import { Link,  useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { updateProfile } from 'firebase/auth'
@@ -11,8 +11,8 @@ import Auth from '../../Firebase/Firebase.config'
 
  const  Register = () => {
   const {AuthRegister,openSuccessModal,setModelMessage,setModelHead,setUser,
-    setLoading, openErrorModal} = useContext(AuthContext)
-
+    setLoading, openErrorModal,user} = useContext(AuthContext)
+    const Navigate = useNavigate()
 
   const handleRegister = event =>{
  
@@ -21,6 +21,19 @@ import Auth from '../../Firebase/Firebase.config'
     const name =form.name.value ; 
     const email = form.email.value ;
     const password = form.password.value ;
+
+
+    if(user !== null ){
+  
+
+
+      setModelHead("Error");
+    setModelMessage("you are already logged in")
+    openErrorModal()
+      event.target.reset()
+      return
+    }
+
 
     if (password.length < 6) {
       setModelMessage("Password must have at least 6 characters.");
@@ -69,11 +82,19 @@ AuthRegister(email,password)
     
     </>
   );
-  setUser(res.user)
+
   
   openSuccessModal()
+  event.target.reset() 
+Navigate('/')
+
+
   }).catch((error) => {
-    console.log(error , "from update profile")
+   
+    setModelHead("Error");
+    setModelMessage(error.message)
+    openErrorModal()
+   
   });
   
 
@@ -82,8 +103,11 @@ AuthRegister(email,password)
 
 })
 .catch(error=> {
-  const err = error.message ;
-  console.log(err)
+  
+  setModelHead("Error");
+  setModelMessage(error.message)
+  openErrorModal()
+  
 })
 
 
@@ -107,7 +131,7 @@ AuthRegister(email,password)
         <fieldset className="space-y-1">
             <Label htmlFor="name">Name*</Label>
             <div className="relative">
-              <Input name='name' id="name" type="text" placeholder="Enter full name" className="ps-11" />
+              <Input required name='name' id="name" type="text" placeholder="Enter full name" className="ps-11" />
               <Icon>
                 <User size={19} color="#AFBACA" />
               </Icon>
@@ -116,16 +140,16 @@ AuthRegister(email,password)
           <fieldset className="space-y-1">
             <Label htmlFor="email">Email*</Label>
             <div className="relative">
-              <Input name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
+              <Input required name='email' id="email" type="email" placeholder="Enter email" className="ps-11" />
               <Icon>
                 <Envelope size={19} color="#AFBACA" />
               </Icon>
             </div>
           </fieldset>
-          <fieldset className="space-y-1">
+          <fieldset   className="space-y-1">
             <Label  htmlFor="photoURL">photoURL*</Label>
             <div className="relative">
-              <Input id="photoURL" type="text" placeholder="Enter PhotoURL" className="ps-11" />
+              <Input required id="photoURL" type="text" placeholder="Enter PhotoURL" className="ps-11" />
               <Icon>
                 <Image size={19} color="#AFBACA" />
               </Icon>
@@ -134,7 +158,7 @@ AuthRegister(email,password)
           <fieldset className="space-y-1">
             <Label htmlFor="password">Password*</Label>
             <div className="relative">
-              <Input id="password" placeholder="Enter password" type="password" className="ps-11" />
+              <Input required id="password" placeholder="Enter password" type="password" className="ps-11" />
               <Icon>
                 <Lock size={19} color="#AFBACA" />
               </Icon>

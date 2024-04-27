@@ -1,19 +1,24 @@
 
 'use client'
-import { Envelope, FacebookLogo, GoogleLogo, Lock } from 'phosphor-react'
+import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo } from 'phosphor-react'
 import { Button, Card, Divider, Icon, Input, Label } from 'keep-react'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
  const Login = () => {
-const {AuthLogIn,user,closeModal,setUser,isSuccessOpen,openSuccessModal,setIsSuccessOpen,setModelMessage,setModelHead,modelHead,modelMessage,setLoading,loading} = useContext(AuthContext)
+const {AuthLogIn,githubLogin,user,closeModal,openErrorModal,setUser,isSuccessOpen,openSuccessModal,setIsSuccessOpen,setModelMessage,setModelHead,modelHead,modelMessage,setLoading,loading} = useContext(AuthContext)
 
   const handleLogin = event =>{
     event.preventDefault()
 
 if(user !== null ){
-  console.log("already log in") ;
+  
+
+
+  setModelHead("Error");
+setModelMessage("you are already logged in")
+openErrorModal()
   event.target.reset()
   return
 }
@@ -28,7 +33,7 @@ AuthLogIn(email,password)
 .then(res=>{
   console.log(res.user ,"login Successfully")
   form.reset()
-  setUser(res.user)
+
   
 setModelHead("Login Successfully")
 setModelMessage(
@@ -39,6 +44,7 @@ setModelMessage(
     </span>
   </>
 );
+
 openSuccessModal()
 
 
@@ -89,9 +95,9 @@ console.log("error from login " , error.message)
             <GoogleLogo size={20} className="mr-1.5" />
             Google
           </Button>
-          <Button size="xs" variant="outline" color="secondary" className="w-full">
-            <FacebookLogo size={20} className="mr-1.5" />
-            Facebook
+          <Button onClick={githubLogin} size="xs" variant="outline" color="secondary" className="w-full">
+            <GithubLogo size={20} className="mr-1.5" />
+           GitHub
           </Button>
         </div>
       </Card.Content>

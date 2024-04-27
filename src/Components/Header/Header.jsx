@@ -23,7 +23,7 @@ const Header = () => {
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/allartandcraftitems">All Art & craft Items</NavLink>
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/addcraftitem">Add Craft Item</NavLink>
     {
-      user? <NavLink className={`navlink`} to="/myartandcraftlist">My Art&Craft List</NavLink> : null
+      user? <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/myartandcraftlist">My Art&Craft List</NavLink> : null
     }
     
     
@@ -57,7 +57,7 @@ const Header = () => {
 
      {
       user? <img src={user.photoURL} className="w-10 object-cover rounded-lg border-[1px] border-blue-200  dark:border-[#fff0] h-10 p-1" alt="" /> : 
-      <User  className="dark:text-yellow-400  text-yellow-500 px-2 py-1 w-10 h-10  " />
+      <User  className="dark:text-fuchsia-400   text-fuchsia-500 px-2 py-1 w-10 h-10  " />
      }
            
            
@@ -79,7 +79,12 @@ const Header = () => {
         <div className="text-xs  font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] "> 
 
         
-        <p className="text-xs underline btn" onClick={logOut}>logOut</p></div>
+       {
+        user ?  <p className="text-xs underline btn" onClick={logOut}>logOut</p> :  <Link className="text-xs underline btn" to="/login" >Login</Link>
+       }
+        
+        
+        </div>
            
             
 
