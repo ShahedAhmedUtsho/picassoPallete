@@ -1,9 +1,22 @@
+import { useEffect, useState } from "react";
+import AllCraftTable from "../Table/Table";
+import { useLoaderData } from "react-router-dom";
 
 
 const AllArtCraftItems = () => {
+    const [allCraft,setAllCraft]=useState([])
+    const LoadedData = useLoaderData()
+    // setAllCraft(LoadedData)
+    
+    useEffect(() => {
+        setAllCraft(LoadedData);
+    }, [LoadedData]); 
+
     return (
         <div>
-            All Art & craft Items
+            <AllCraftTable
+              allCraft={allCraft}
+              ></AllCraftTable>
         </div>
     );
 };

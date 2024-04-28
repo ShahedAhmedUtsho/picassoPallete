@@ -38,6 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allartandcraftitems',
+        loader:()=>fetch('http://localhost:3000/allartandcraftitems'),
         element:<AllArtCraftItems></AllArtCraftItems>,
       },{
         path:'/addcraftitem',
