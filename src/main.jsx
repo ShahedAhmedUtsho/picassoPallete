@@ -16,6 +16,7 @@ import Myartandcraftlis from './Components/Myartandcraftlis/Myartandcraftlis.jsx
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import SingleCarft from './Components/SingleCarft/SingleCarft.jsx';
+import UpdateCarft from './Components/UpdateCraft/UpdateCarft.jsx';
 
 
 
@@ -45,10 +46,12 @@ const router = createBrowserRouter([
         
       },{
         path:'/addcraftitem',
-        element:<PrivetRoute><AddCraftItem></AddCraftItem></PrivetRoute>
+        element:<PrivetRoute><AddCraftItem></AddCraftItem></PrivetRoute>,
+        
       },{
         path:'/myartandcraftlist',
         element:<PrivetRoute><Myartandcraftlis></Myartandcraftlis></PrivetRoute>,
+        loader:()=>fetch('http://localhost:3000/allartandcraftitems')
       },{
         path:'/',
         element:<Home></Home>,
@@ -57,7 +60,12 @@ const router = createBrowserRouter([
         path: "/allartandcraftitems/:craftID",
         element:<PrivetRoute><SingleCarft></SingleCarft></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
-      }
+      },
+      {
+        path: "/myartandcraftlist/:craftID",
+        element:<PrivetRoute><UpdateCarft></UpdateCarft></PrivetRoute>,
+        loader:({params})=>fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
+      } 
     ]
   },
 ]);
