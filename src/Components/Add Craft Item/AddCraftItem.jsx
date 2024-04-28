@@ -112,8 +112,9 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
     }
   return (
-    <form  onSubmit={handleCraft} className="mx-auto max-w-5xl space-y-2 my-20 rounded-lg border p-8   shadow-md dark:bg-slate-700">
-        <div className='grid grid-cols-2 gap-4 p-3'>
+   <div className='w-full min-h-[90vh] '>
+     <form  onSubmit={handleCraft} className="mx-auto mt-[8%] max-w-5xl space-y-2 my-20 rounded-lg border dark:bg-transparent dark:border-none p-8   shadow-md bg-[#00000034] md:dark:bg-slate-700">
+        <div className='grid md:grid-cols-2 gap-4 md:p-3'>
 
 
         <fieldset className="space-y-1">
@@ -232,6 +233,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
       Add
       </Button>
     </form>
+   </div>
   )
 }
 

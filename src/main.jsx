@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allartandcraftitems/:craftID",
-        element:<SingleCarft></SingleCarft>,
+        element:<PrivetRoute><SingleCarft></SingleCarft></PrivetRoute>,
         loader:({params})=>fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
       }
     ]
