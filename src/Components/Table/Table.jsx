@@ -12,7 +12,7 @@ const AllCraftTable = ( {allCraft}) => {
       <Table.Caption>
         <div className="my-5 flex items-center justify-between px-6">
           <div className="flex items-center gap-5">
-            <p className="text-body-1 font-semibold text-metal-600">Team member</p>
+            <p className="text-body-1 font-semibold text-metal-600">All Craft & Art</p>
             <Badge size="xs" color="secondary" className="py-[0.2em] px-[0.8em]">
               {allCraft.length}
             </Badge>
