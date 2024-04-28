@@ -4,6 +4,7 @@ import ErrorModel from "../Components/Model/ErrorModel";
 import Success from "../Components/Model/Success";
 import Footer from "../Components/Footer/Footer";
 import Line from "../assist/images/lines.svg"
+import DeleteModel from "../Components/Model/DeleteModel";
 
 
 const Root = () => {
@@ -13,6 +14,7 @@ const Root = () => {
             <img  src={Line} alt="line" className="w-full -z-10 absolute right-0 top-0" />
             <Success></Success>
             <ErrorModel></ErrorModel>
+            <DeleteModel></DeleteModel>
            
  <div className=" container mx-auto  ">
 

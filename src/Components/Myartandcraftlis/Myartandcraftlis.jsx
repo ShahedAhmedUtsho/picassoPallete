@@ -1,24 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Trash,Pen} from 'phosphor-react'
-import { Button } from 'keep-react'
+import { Button,Modal } from 'keep-react'
 import {  Gear, SignIn } from 'phosphor-react'
 
 
 const Myartandcraftlis = () => {
-    const {user} = useContext(AuthContext);
+   
+
+    const reloaded = () => {
+        const reloaded =    window.location.reload();
+    }
+
+
+
+    //  const reloaded =    window.location.reload();
+     
+
+
+
+    const {user,handleDelete,handleTrash,} = useContext(AuthContext);
     const myEmail = user.email ;
 
     const allCrafts = useLoaderData() ;
-
+    const [myCollectionCraft,setMyCollectionCraft] =useState(allCrafts)
     const myCraftCollection = allCrafts.filter(Craft =>Craft.email === myEmail) || [] ;
     console.log(myCraftCollection)
 
-    const handleTrash = ()=>{
-        console.log("trash")
+    
+   
 
-    }
+
+
 
 if( myCraftCollection.length === 0 ){
     return <div className="w-full h-[80vh] gap-7 flex justify-center flex-col items-center ">
@@ -97,7 +111,10 @@ Update
 
 
 
-      <Button onClick={()=> handleTrash(carft._id)} className="bg-[#fe777752] hover:bg-[#fe77778f] text-red-600">
+      <Button onClick={()=> handleTrash(carft._id,reloaded)} 
+      
+      
+      className="bg-[#fe777752] hover:bg-[#fe77778f] text-red-600">
         <Trash size={20} className="mr-1.5" />
        Delete
       </Button>

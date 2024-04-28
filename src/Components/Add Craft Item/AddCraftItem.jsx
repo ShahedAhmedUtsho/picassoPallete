@@ -17,7 +17,7 @@ import {
 
 
  } from 'phosphor-react'
-import { Button, Icon, Input, Label, Radio } from 'keep-react'
+import { Button, Icon, Input, Label,Textarea  } from 'keep-react'
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
@@ -88,7 +88,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
     setModelHead("Craft added successfully") ;
     setModelMessage(" go to all craft to see added item  ")
     openSuccessModal()
-    form.reset()
+    // form.reset()
 })
 .catch(error=>{
     console.log(error,"from post server catch")
@@ -151,15 +151,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
       </fieldset>
 
 
-      <fieldset className="space-y-1">
-        <Label className=' dark:text-slate-200' htmlFor="short_description">short description</Label>
-        <div className="relative">
-          <Input required  name='short_description' id="short description" placeholder="Enter short description" type="text" className="ps-11 rounded-sm" />
-          <Icon>
-            <Cards size={19} color="#AFBACA" />
-          </Icon>
-        </div>
-      </fieldset>
+     
 
 
       <fieldset className="space-y-1">
@@ -229,7 +221,16 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
         </div>
-      
+
+
+       
+
+
+      <fieldset className="space-y-1.5 p-2">
+      <Label className=' dark:text-slate-200' htmlFor="short_description">short description</Label>
+      <Textarea className='rounded-sm' required name='short_description' id="short description" placeholder="Enter short description" />
+     
+    </fieldset>
       <Button size="sm" color="secondary" type="submit" className='px-8'>
       Add
       </Button>

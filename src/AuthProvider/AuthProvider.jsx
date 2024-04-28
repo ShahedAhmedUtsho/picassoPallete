@@ -40,6 +40,7 @@ const closeSuccessModal = () => {
 }
 
 
+
 // Success model 
 // error model
 const [isErrorOpen, setIsErrorOpen] = useState(false)
@@ -49,6 +50,70 @@ const openErrorModal = () => {
 const closeErrorModal = () => {
   setIsErrorOpen(false)
 }
+
+
+// delete model  
+
+const [isDeleteOpen, setIsDeleteOpen] = useState(false)
+const openDeleteModal = () => {
+  setIsDeleteOpen(true)
+}
+const closeDeleteModal = () => {
+  setIsDeleteOpen(false)
+}
+
+
+
+
+// handle delete and trush 
+
+const [deleteID,setDeleteID] =useState();
+const [reloadd,setReloadd]=useState();
+
+const handleDelete = (id)=>{
+  console.log("delete suck",id);
+
+fetch(`http://localhost:3000/allartandcraftitems/${id}`,{
+  method:'DELETE'
+
+}).then(res=>res.json())
+.then((data)=>
+   { 
+    console.log(data) 
+    setModelHead('delete successful')
+    setModelMessage("")
+    openSuccessModal()
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+
+}
+)
+
+
+
+
+
+
+}
+const handleTrash = (id,reloaded)=>{
+  setReloadd(()=> reloaded)
+  //  setReloadd(reloaded)
+       setDeleteID(id)
+        console.log("trash" ,deleteID) ;
+          openDeleteModal()
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 //error model
@@ -115,6 +180,12 @@ const ShareValue = {AuthRegister,
     openSuccessModal,
     loading,setLoading,
     closeErrorModal,openErrorModal,isErrorOpen ,
+    isDeleteOpen, setIsDeleteOpen,openDeleteModal,closeDeleteModal,
+    handleDelete,
+    handleTrash,
+    deleteID,
+    // reloadd
+
   
     // navigate ,
     // location

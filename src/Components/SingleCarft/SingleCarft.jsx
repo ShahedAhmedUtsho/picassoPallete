@@ -17,7 +17,7 @@ const SingleCarft = () => {
 
               <p className=" text-gray-800 mb-4 text-2xl">Price: ${carft.price} </p>
 
-          <p className="text-lg text-gray-800 mb-4">Processing Time:  {carft.processing_time} hours</p>
+          <p className="text-lg text-gray-800 mb-4">Processing Time:  {carft.processing_time} Days</p>
              <p className="text-gray-800 text-lg  mb-4"> Rating: {carft.rating}</p>
 
 
