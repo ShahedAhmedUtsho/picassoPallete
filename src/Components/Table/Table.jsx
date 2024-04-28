@@ -1,9 +1,9 @@
 
 "use client";
-import { Avatar, Badge, Button, Popover, Table } from "keep-react";
-import { ArrowDown, Cube, DotsThreeOutline, Pencil, Trash } from "phosphor-react";
+import {  Badge, Button,  Table ,Tooltip } from "keep-react";
+import {  Cube, ArrowRight  } from "phosphor-react";
 import PropTypes from 'prop-types'
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const AllCraftTable = ( {allCraft}) => {
   
   return (
@@ -13,19 +13,19 @@ const AllCraftTable = ( {allCraft}) => {
         <div className="my-5 flex items-center justify-between px-6">
           <div className="flex items-center gap-5">
             <p className="text-body-1 font-semibold text-metal-600">Team member</p>
-            <Badge size="xs" color="secondary">
-              100 Member
+            <Badge size="xs" color="secondary" className="py-[0.2em] px-[0.8em]">
+              {allCraft.length}
             </Badge>
           </div>
           <div  className="flex items-center gap-5">
-            <Link to="/addcraftitem"><Button  variant="outline" size="sm">
+            <Link to="/addcraftitem"><Button  variant="outline" size="sm" className=" bg-transparent  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
               <span className="pr-2">
                 <Cube size={24} />
               </span>
              Add New
             </Button></Link>
             <Link to="/myartandcraftlist">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className=" bg-transparent  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
               <span className="pr-2">
                 <Cube size={24} />
               </span>
@@ -70,9 +70,23 @@ const AllCraftTable = ( {allCraft}) => {
               
              
               <Table.Cell>
-                <Button variant="outline" size="sm" shape="circle">
-                  <DotsThreeOutline size={15} />
-                </Button>
+
+
+
+              <Tooltip >
+      <Tooltip.Action className=" bg-transparent  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100  rounded-full h-8 w-8 border-[1px] flex justify-center items-center">
+         
+      <Link to={`/allartandcraftitems/${aCraft._id}`}>
+                  <ArrowRight  size={15} />
+               </Link>
+
+
+        </Tooltip.Action>
+      <Tooltip.Content>
+        <p className="text-body-5 font-medium text-white"> View details</p>
+      </Tooltip.Content>
+    </Tooltip>
+              
               </Table.Cell>
             </Table.Row>
      )
@@ -101,10 +115,12 @@ const AllCraftTable = ( {allCraft}) => {
           <div className="flex items-center ">
             <p className=" py-2 px-3  text-xl  font-semibold  dark:text-metal-100 text-metal-600">All Craft</p>
             <Badge  color="secondary" className="bg-red-200 dark:bg-transparent  dark:text-fuchsia-300 dark:border-[1px]  dark:border-fuchsia-300 text-[8px]  px-[1em]">
-              100
+            {allCraft.length}
             </Badge>
           </div>
+
           <div className="flex items-center gap-5">
+            
             <Button variant="outline" size="xs" className="text-sm border-fuchsia-700 hover:bg-fuchsia-100 hover:text-fuchsia-900  dark:bg-transparent dark:text-fuchsia-300  text-fuchsia-700  dark:border-fuchsia-300">
               <span className="pr-2">
                 <Cube size={16} />

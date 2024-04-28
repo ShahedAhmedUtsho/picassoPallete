@@ -1,6 +1,11 @@
 
 'use client'
-import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo } from 'phosphor-react'
+
+"use client";
+
+
+
+import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen } from 'phosphor-react'
 import { Button, Card, Divider, Icon, Input, Label } from 'keep-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
@@ -178,8 +183,22 @@ openErrorModal()
 
 
   return (
-   <div className=''>
-     <Card className="max-w-sm mx-auto md:my-20 my-10 dark:text-fuchsia-50 border-none md:border-[1px] border-fuchsia-500 bg-transparent md:bg-white  
+    <div className={`border-[1px]  bg-cover bg-center md:bg-[url('https://i.ibb.co/4Kjv05C/dragon-dark-sky-fantasy-art-pr-1366x768.jpg')]    border-black  bg-transparent grid md:grid-cols-7   md:min-h-[90vh] lg:min-h-[90vh]  ` }>
+            <div  className="py-10 hidden md:flex mt-5 md:mt-0 md:py-0 px-4 h-full md:col-span-3  flex-col gap-6 md:gap-5 lg:gap-10   justify-center  ">
+    
+
+
+
+            </div>
+
+
+
+
+
+
+            <div className=" md:bg-transparent  h-full md:col-span-4 flex justify-center items-center ">
+
+            <Card className="max-w-sm  md:my-20 my-10 dark:text-fuchsia-50  rounded-sm border-none md:border-[1px] border-fuchsia-500 bg-transparent md:bg-[#ffffffca]  
      md:dark:bg-[#f8e7fcd3]
       ">
       <Card.Content className="space-y-3">
@@ -214,18 +233,26 @@ openErrorModal()
         </form>
         <Divider>Or</Divider>
         <div className="flex items-center justify-between gap-3">
-          <Button onClick={GoogleLogin} size="xs" variant="outline" color="secondary" className="w-full">
+          <Button onClick={GoogleLogin} size="xs" variant="outline" color="secondary" className="w-full bg-[#4285f4] text-white">
             <GoogleLogo size={20} className="mr-1.5" />
             Google
           </Button>
-          <Button onClick={githubLogin} size="xs" variant="outline" color="secondary" className="w-full">
+          <Button onClick={githubLogin} size="xs" variant="outline" color="secondary" className="w-full  text-slate-900">
             <GithubLogo size={20} className="mr-1.5" />
            GitHub
           </Button>
         </div>
       </Card.Content>
     </Card>
-   </div>
+
+
+            </div>
+
+            
+        </div>
+  
+    
+   
   )
 }
 

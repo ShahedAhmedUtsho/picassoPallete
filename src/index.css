@@ -4,7 +4,9 @@
 @tailwind components;
 @tailwind utilities;
   
-
+*{
+  /* overflow-x: hidden; */
+}
 .header .navlink{
   padding: 0.4em 1.2em;
   

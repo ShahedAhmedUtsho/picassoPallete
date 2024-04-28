@@ -112,12 +112,12 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
     }
   return (
-    <form  onSubmit={handleCraft} className="mx-auto max-w-5xl space-y-2 my-20 rounded-lg border p-8   shadow-md">
+    <form  onSubmit={handleCraft} className="mx-auto max-w-5xl space-y-2 my-20 rounded-lg border p-8   shadow-md dark:bg-slate-700">
         <div className='grid grid-cols-2 gap-4 p-3'>
 
 
         <fieldset className="space-y-1">
-        <Label htmlFor="photoURL">photoURL</Label>
+        <Label className=' dark:text-slate-200' htmlFor="photoURL">photoURL</Label>
         <div className="relative">
           <Input  required name='photoURL' placeholder="Enter photoURL" className="ps-11 rounded-sm" />
           <Icon>
@@ -128,7 +128,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="item_name">item name</Label>
+        <Label className=' dark:text-slate-200' htmlFor="item_name">item name</Label>
         <div className="relative">
           <Input required id="item_name" name='item_name' placeholder="Enter item name" type="text" className="ps-11 rounded-sm" />
           <Icon>
@@ -139,7 +139,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="subcategory_Name">subcategory Name</Label>
+        <Label  className=' dark:text-slate-200' htmlFor="subcategory_Name">subcategory Name</Label>
         <div className="relative">
           <Input required name='subcategory_Name ' id="subcategory_Name" placeholder="Enter subcategory" type="text" className="ps-11 rounded-sm" />
           <Icon>
@@ -150,7 +150,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="short_description">short description</Label>
+        <Label className=' dark:text-slate-200' htmlFor="short_description">short description</Label>
         <div className="relative">
           <Input required  name='short_description' id="short description" placeholder="Enter short description" type="text" className="ps-11 rounded-sm" />
           <Icon>
@@ -161,7 +161,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="price">Price ($) </Label>
+        <Label className=' dark:text-slate-200' htmlFor="price">Price ($) </Label>
         <div className="relative">
           <Input required name='price' id="price" placeholder="Enter price" type="number" className="ps-11 rounded-sm" />
           <Icon>
@@ -170,7 +170,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
         </div>
       </fieldset>
       <fieldset className="space-y-1">
-        <Label htmlFor="rating">rating (0-5) </Label>
+        <Label className=' dark:text-slate-200' htmlFor="rating">rating (0-5) </Label>
         <div className="relative">
           <Input required name='rating' id="rating" placeholder="Enter rating" type="number" className="ps-11 rounded-sm" />
           <Icon>
@@ -181,7 +181,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="processing_time">processing_time (Days)</Label>
+        <Label className=' dark:text-slate-200' htmlFor="processing_time">processing_time (Days)</Label>
         <div className="relative">
           <Input required name='processing_time' id="processing_time" placeholder="Enter processing_time" type="number" className="ps-11 rounded-sm" />
           <Icon>
@@ -199,7 +199,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label  htmlFor="customization">customization (yes/no)</Label>
+        <Label  className=' dark:text-slate-200' htmlFor="customization">customization (yes/no)</Label>
         <div className="relative">
           <Input required name='customization' id="customization" placeholder="Enter User Email" type="text" className="ps-11 rounded-sm" />
           <Icon>
@@ -210,7 +210,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
 
       <fieldset className="space-y-1">
-        <Label htmlFor="stockStatus">stockStatus ( In stock / Made to Order)</Label>
+        <Label className=' dark:text-slate-200' htmlFor="stockStatus">stockStatus ( In stock / Made to Order)</Label>
         <div className="relative">
           <Input name='stockStatus' id="stockStatus" placeholder="Enter UserName" type="text" className="ps-11 rounded-sm" />
           <Icon>
@@ -228,8 +228,8 @@ fetch('http://localhost:3000/allartandcraftitems',{
 
         </div>
       
-      <Button size="sm" color="secondary" type="submit">
-      Post
+      <Button size="sm" color="secondary" type="submit" className='px-8'>
+      Add
       </Button>
     </form>
   )
