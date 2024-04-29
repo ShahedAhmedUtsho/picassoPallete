@@ -4,14 +4,12 @@
 
 'use client'
 import { 
-    Envelope,
      Image,
      AddressBook,
      AlignLeft,
-     Cards,
      CurrencyCircleDollar,
      Star,
-     ClockClockwise ,User, 
+     ClockClockwise ,
      Pen,
      Ticket
 
@@ -195,7 +193,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
       <fieldset className="space-y-1">
         <Label  className=' dark:text-slate-200' htmlFor="customization">customization (yes/no)</Label>
         <div className="relative">
-          <Input required name='customization' id="customization" placeholder="Enter User Email" type="text" className="ps-11 rounded-sm" />
+          <Input required name='customization' id="customization" placeholder="Customizable ? yes / no" type="text" className="ps-11 rounded-sm" />
           <Icon>
             <Pen size={19} color="#AFBACA" />
           </Icon>
@@ -206,7 +204,7 @@ fetch('http://localhost:3000/allartandcraftitems',{
       <fieldset className="space-y-1">
         <Label className=' dark:text-slate-200' htmlFor="stockStatus">stockStatus ( In stock / Made to Order)</Label>
         <div className="relative">
-          <Input name='stockStatus' id="stockStatus" placeholder="Enter UserName" type="text" className="ps-11 rounded-sm" />
+          <Input name='stockStatus' id="stockStatus" placeholder="Enter stockStatus" type="text" className="ps-11 rounded-sm" />
           <Icon>
             <Ticket size={19} color="#AFBACA" />
           </Icon>

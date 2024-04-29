@@ -1,6 +1,6 @@
 import  { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword,GithubAuthProvider, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut,} from 'firebase/auth';
 import Auth from '../Firebase/Firebase.config';
 
 
