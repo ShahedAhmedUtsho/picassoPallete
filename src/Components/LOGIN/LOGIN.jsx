@@ -5,16 +5,22 @@
 
 
 
-import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen } from 'phosphor-react'
+import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen ,User ,Image,Eye,EyeSlash} from 'phosphor-react'
+
 import { Button, Card, Divider, Icon, Input, Label } from 'keep-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { GithubAuthProvider, signInWithPopup,  GoogleAuthProvider } from 'firebase/auth';
 
  const Login = () => {
   const location = useLocation()
   const navigate = useNavigate();
+  const[visible,setVisible] = useState(true)
+  const eysToggle = () =>{
+    setVisible(!visible)
+
+   }
   useEffect(() => {
     document.title ="PP - Login"
    
@@ -231,10 +237,16 @@ openErrorModal()
           <fieldset className="space-y-1">
             <Label  className='dark:text-fuchsia-700 md:dark:text-fuchsia-900' htmlFor="password">Password*</Label>
             <div className="relative">
-              <Input required name='password' id="password" placeholder="Enter password" type="password" className="ps-11" />
+              <Input required name='password' id="password" placeholder="Enter password" type={visible?"password":"text"} className="ps-11" />
               <Icon>
                 <Lock size={19} color="#AFBACA" />
               </Icon>
+              <div  onClick={eysToggle} className=' text-[#69707a] cursor-pointer absolute right-3 top-[27%]'>
+                      {
+                        visible? <EyeSlash  size={19} color="#69707a" />:  <Eye size={19} color="#69707a" />
+                      }
+                   
+                    </div>
             </div>
           </fieldset>
           <Button className="!mt-3 block w-full bg-fuchsia-500  text-fuchsia-50 hover:bg-fuchsia-300 hover:text-black" size="xs" color="secondary" variant="outline">

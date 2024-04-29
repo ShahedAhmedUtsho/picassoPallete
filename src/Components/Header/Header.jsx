@@ -18,8 +18,10 @@ const Header = () => {
 
     const link = <>
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/">Home</NavLink>
-    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/login">login</NavLink>
-    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/register">register</NavLink>
+  {
+    !user ?  <><NavLink className={`navlink text-black dark:text-[#ddd]`} to="/login">login</NavLink>
+    <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/register">register</NavLink></> : null
+  }
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/allartandcraftitems">All Art & craft Items</NavLink>
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/addcraftitem">Add Craft Item</NavLink>
     {

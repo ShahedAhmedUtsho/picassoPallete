@@ -95,7 +95,7 @@ if( myCraftCollection.length === 0 ){
 
     return (
         <div className="min-h-[90vh]">
-            <h2 className="text-3xl text-center my-10 capitalize">
+            <h2 className="text-3xl dark:text-slate-300 text-center my-10 capitalize">
                 your added craft Collection 
             </h2>
 

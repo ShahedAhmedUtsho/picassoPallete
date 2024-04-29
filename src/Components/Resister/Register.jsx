@@ -1,17 +1,25 @@
 
 
 'use client'
-import { Envelope, Lock ,User ,Image} from 'phosphor-react'
+
 import { Button, Card, Icon, Input, Label } from 'keep-react'
 import { Link,  useLocation,  useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { updateProfile } from 'firebase/auth'
 import Auth from '../../Firebase/Firebase.config'
+import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen ,User ,Image,Eye,EyeSlash} from 'phosphor-react'
 
  const  Register = () => {
   const navigate = useNavigate() ;
   const location = useLocation();
+  const[visible,setVisible] = useState(true)
+  const eysToggle = () =>{
+    setVisible(!visible)
+
+   }
+
+   
   const {AuthRegister,openSuccessModal,setModelMessage,setModelHead,setUser,
     setLoading, openErrorModal,user} = useContext(AuthContext)
     const Navigate = useNavigate()
@@ -179,10 +187,17 @@ Navigate('/')
   <fieldset className="space-y-1">
     <Label className='dark:text-fuchsia-900' htmlFor="password">Password*</Label>
     <div className="relative">
-      <Input required id="password" placeholder="Enter password" type="password" className="ps-11" />
+      <Input required id="password" placeholder="Enter password" type={visible?"password":"text"} className="ps-11" />
       <Icon>
         <Lock size={19} color="#AFBACA" />
       </Icon>
+
+      <div  onClick={eysToggle} className=' text-[#69707a] cursor-pointer absolute right-3 top-[27%]'>
+                      {
+                        visible? <EyeSlash  size={19} color="#69707a" />:  <Eye size={19} color="#69707a" />
+                      }
+                   
+                    </div>
     </div>
   </fieldset>
   <Button className="!mt-3    bg-fuchsia-500  text-fuchsia-50 hover:bg-fuchsia-300 hover:text-black block w-full" size="xs" color="secondary" variant="outline">
