@@ -7,7 +7,7 @@ const Footer = () => {
             <footer className={`bg-slate-900 bg-cover bg-center  `}>
   <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
     <div className="md:flex md:justify-between">
-      <div className="mb-6 md:mb-0">
+      <div className="mb-6 md:mb-0 ">
         <Link to='/' className="flex items-center">
           <img
             src={logo}
@@ -18,6 +18,7 @@ const Footer = () => {
            
           </span>
         </Link>
+        <p className="max-w-[550px] pr-2 my-4 text-slate-400 text-xs md:text-sm">Immerse yourself in the world of art with our handpicked collection of exquisite paintings. Each piece tells a unique story, waiting for you to explore. From vibrant landscapes to thought-provoking abstracts, find the perfect piece to adorn your space with picassoPallet</p>
       </div>
       <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
         <div>

@@ -15,7 +15,10 @@ import { GithubAuthProvider, signInWithPopup,  GoogleAuthProvider } from 'fireba
  const Login = () => {
   const location = useLocation()
   const navigate = useNavigate();
- 
+  useEffect(() => {
+    document.title ="PP - Login"
+   
+   }, [])
   
 const {AuthLogIn,user,Auth,closeModal,openErrorModal,setUser,isSuccessOpen,openSuccessModal,setIsSuccessOpen,setModelMessage,setModelHead,modelHead,modelMessage,setLoading,loading} = useContext(AuthContext)
 
@@ -67,7 +70,14 @@ openSuccessModal()
 
 })
 .catch(error => {
-console.log("error from login " , error.message)
+console.log(error.message)
+
+setModelHead('Error')
+setModelMessage(error.message)
+openErrorModal()
+
+
+
 })
 
   }

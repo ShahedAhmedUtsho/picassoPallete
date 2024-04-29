@@ -8,7 +8,10 @@ const AllArtCraftItems = () => {
     
     const [allCraft,setAllCraft]=useState([])
     const LoadedData = useLoaderData()
-    
+    useEffect(() => {
+        document.title ="PP - All art & Craft"
+       
+       }, [])
     
     useEffect(() => {
         

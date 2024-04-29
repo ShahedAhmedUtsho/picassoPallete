@@ -29,6 +29,7 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>,
+        loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
       },
       {
         path:'/login',
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         path:'/allartandcraftitems',
         element:<AllArtCraftItems></AllArtCraftItems>,
         
-        loader:()=>fetch('http://localhost:3000/allartandcraftitems')
+        loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
         
       },{
         path:'/addcraftitem',
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },{
         path:'/myartandcraftlist',
         element:<PrivetRoute><Myartandcraftlis></Myartandcraftlis></PrivetRoute>,
-        loader:()=>fetch('http://localhost:3000/allartandcraftitems')
+        loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
       },{
         path:'/',
         element:<Home></Home>,
@@ -59,12 +60,12 @@ const router = createBrowserRouter([
       {
         path: "/allartandcraftitems/:craftID",
         element:<PrivetRoute><SingleCarft></SingleCarft></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
+        loader:({params})=>fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${params.craftID}`)
       },
       {
         path: "/myartandcraftlist/:craftID",
         element:<PrivetRoute><UpdateCarft></UpdateCarft></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
+        loader:({params})=>fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${params.craftID}`)
       } 
     ]
   },

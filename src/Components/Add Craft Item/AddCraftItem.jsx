@@ -16,10 +16,16 @@ import {
 
  } from 'phosphor-react'
 import { Button, Icon, Input, Label,Textarea  } from 'keep-react'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
  const AddCraftItem = () => {
+
+
+  useEffect(() => {
+    document.title ="PP - Add Art & Craft"
+   
+   }, [])
     const {user, openErrorModal, setModelMessage,
         setModelHead,
         openSuccessModal,} = useContext(AuthContext)
@@ -70,9 +76,9 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
         }
         console.log(newCraft)
 
-
+        // https://assaiment10-backend.vercel.app/
 //mongodb & server connection 
-fetch('http://localhost:3000/allartandcraftitems',{
+fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
     method: 'Post',
     headers:{
         'content-type' : 'application/json'

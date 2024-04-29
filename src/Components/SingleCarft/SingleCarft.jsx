@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 
 const SingleCarft = () => {
+  useEffect(() => {
+    document.title ="PP - craft Details"
+   
+   }, [])
     const carft = useLoaderData();
     console.log(carft)
     return (

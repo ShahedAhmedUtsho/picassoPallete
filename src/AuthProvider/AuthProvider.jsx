@@ -73,7 +73,7 @@ const [reloadd,setReloadd]=useState();
 const handleDelete = (id)=>{
   console.log("delete suck",id);
 
-fetch(`http://localhost:3000/allartandcraftitems/${id}`,{
+fetch(`https://assaiment10-backend.vercel.app//allartandcraftitems/${id}`,{
   method:'DELETE'
 
 }).then(res=>res.json())

@@ -1,4 +1,4 @@
-import  { useContext } from 'react';
+import  { useContext, useEffect } from 'react';
 import { Navigate, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -19,6 +19,10 @@ import { Button, Icon, Input, Label,Textarea  } from 'keep-react'
 
 
 const UpdateCarft = () => {
+  useEffect(() => {
+    document.title ="PP - Update Craft"
+   
+   }, []) 
     
 const {user, openErrorModal, setModelMessage,
     setModelHead,
@@ -84,7 +88,7 @@ const handleCraft = event =>{
 
 
 //mongodb & server connection 
-fetch(`http://localhost:3000/allartandcraftitems/${craft._id}`,{
+fetch(`https://assaiment10-backend.vercel.app//allartandcraftitems/${craft._id}`,{
 method: 'PUT',
 headers:{
     'content-type' : 'application/json'
