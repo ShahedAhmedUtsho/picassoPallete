@@ -88,7 +88,7 @@ const handleCraft = event =>{
 
 
 //mongodb & server connection 
-fetch(`https://assaiment10-backend.vercel.app//allartandcraftitems/${craft._id}`,{
+fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${craft._id}`,{
 method: 'PUT',
 headers:{
     'content-type' : 'application/json'

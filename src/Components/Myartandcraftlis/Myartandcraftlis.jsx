@@ -2,11 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Trash,Pen} from 'phosphor-react'
-import { Button,Modal } from 'keep-react'
-import {  Gear, SignIn } from 'phosphor-react'
+import { Button,Modal, Toggle } from 'keep-react'
+import {  Gear, SignIn ,CaretDown} from 'phosphor-react'
 
 
 const Myartandcraftlis = () => {
+
+
+
+
+const [isActive,setIsActive] =useState(true);
+const handleIsActive = ()=>{
+setIsActive(!isActive)
+}
+
+    const [dropText,setDropText] = useState("All")
+
+
+
     
     useEffect(() => {
         document.title ="PP - My art & craft"
@@ -35,18 +48,23 @@ const Myartandcraftlis = () => {
     
 const handleYes = ()=>{
     const customYes = myCraftCollection.filter(craft => craft.Customization === "yes");
+    setDropText("Yes")
     setMyCollectionCraft(customYes)
+    handleIsActive()
 
 }
 const handleNo = () => {
     const customNo = myCraftCollection.filter(craft => craft.Customization === "no");
+    setDropText("No")
     setMyCollectionCraft(customNo)
-
+    handleIsActive()
 }
 
 const handleAll = () => {
+    setDropText("All")
     const customAll = myCraftCollection
     setMyCollectionCraft(customAll)
+    handleIsActive()
 
 }
 
@@ -81,11 +99,18 @@ if( myCraftCollection.length === 0 ){
                 your added craft Collection 
             </h2>
 
-<div className="flex gap-2 justify-center items-center">
-<button onClick={handleYes} className="bg-slate-300 p-5 rounded-full">yes</button> 
-<button onClick={handleNo} className="bg-slate-300 p-5 rounded-full">no</button>
-<button onClick={handleAll} className="bg-slate-300 p-5 rounded-full">all</button>
+<div className="w-36 dropdown mx-auto relative mb-10">
+    <button onClick={handleIsActive} className="w-full flex justify-center items-center gap-1 bg-slate-600 text-white py-2 text-sm  ">
+Custom by : {dropText} <CaretDown size={20} />
+    </button>
+    <div className={`flex ${isActive?"hidden":"flex"} absolute  right-0 left-0 z-50  justify-center flex-col   border-[1px] border-black mx-auto items-center`}>
+
+<button onClick={handleYes} className={`bg-slate-300 text-xs w-full   py-1 `}>yes</button> 
+<button onClick={handleNo} className="bg-slate-300  text-xs w-full border-y-[1px] border-black  py-1">no</button>
+<button onClick={handleAll} className="bg-slate-300  text-xs w-full  py-1">all</button>
 </div>
+</div>
+
 
 
             <div className="grid md:grid-cols-2 gap-3 w-full   mt-2">

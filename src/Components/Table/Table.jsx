@@ -41,7 +41,7 @@ const AllCraftTable = ( {allCraft}) => {
         <Table.HeadCell>Craft Name</Table.HeadCell>
         <Table.HeadCell className="min-w-[152px]">Price</Table.HeadCell>
         <Table.HeadCell className="min-w-[100px]">Customization</Table.HeadCell>
-        <Table.HeadCell className="min-w-[240px]">Provider Email</Table.HeadCell>
+        <Table.HeadCell className="min-w-[240px]">Provider Name</Table.HeadCell>
        
         <Table.HeadCell className="min-w-[100px]" />
       </Table.Head>
@@ -66,7 +66,7 @@ const AllCraftTable = ( {allCraft}) => {
               <Table.Cell>
                 <p>{aCraft.Customization}  </p>
               </Table.Cell>
-              <Table.Cell> {aCraft.email}</Table.Cell>
+              <Table.Cell> {aCraft.username}</Table.Cell>
               
              
               <Table.Cell>
@@ -170,11 +170,11 @@ const AllCraftTable = ( {allCraft}) => {
             <Table.Body className="divide-gray-25 divide-y">
             <Table.Row className=" flex justify-between dark:!bg-transparent    w-screen items-center">
                <Table.Cell className="font-semibold">
-                 <p>Provider Email :</p>
+                 <p>Provider name :</p>
                </Table.Cell>
       
                <Table.Cell className=" text-right ">
-               {aCraft.email}
+               {aCraft.username}
                  </Table.Cell>
              </Table.Row>
             </Table.Body>

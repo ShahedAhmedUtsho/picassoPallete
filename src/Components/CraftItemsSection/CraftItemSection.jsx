@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const CraftItemSection = ({jsonData}) => {
 
   
-    const firstEightItems = jsonData.slice(0, 8);
+    const firstEightItems = jsonData.slice(0, 6);
 
 
     
