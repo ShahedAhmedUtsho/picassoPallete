@@ -41,7 +41,7 @@ if (load === true) {
 
 const subItems = data.filter(item => item.subcategory_Name === params.CategoryName) ;
 
-// console.log()
+
     
     return (
         <div className='mt-10 md:px-3 px-1 lg:px-5'>

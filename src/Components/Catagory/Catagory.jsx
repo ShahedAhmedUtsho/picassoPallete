@@ -17,7 +17,6 @@ useEffect(() => {
     fetch(apiUrl)
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
         setData(data)
     })
     .catch(error=>console.log(error.message))

@@ -70,17 +70,17 @@ import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen ,User ,Im
 
 
     const photoURL = form.photoURL.value
-    console.log(name,email,photoURL,password)
+    
 
 
 
 AuthRegister(email,password)
 .then(res=>{
-  console.log(res.user);
+  
   updateProfile(Auth.currentUser, {
     displayName: name, photoURL: photoURL ,
   }).then(() => {
-    console.log("name and password upadated");
+    
     form.reset()
   setModelHead("Account created successfully")
   setModelMessage(

@@ -8,7 +8,6 @@ const SingleCarft = () => {
    
    }, [])
     const carft = useLoaderData();
-    console.log(carft)
     return (
         <div className="max-w-2xl mx-auto px-3">
             <div className=" lg:h-[500px] my-10  mx-auto flex justify-center items-center"> 

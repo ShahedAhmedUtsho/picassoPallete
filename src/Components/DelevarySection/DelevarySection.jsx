@@ -2,11 +2,12 @@
 "use client";
 import { Steps } from "keep-react";
 import { Palette,ShoppingBagOpen ,Truck} from "phosphor-react";
-
+import { Fade } from "react-awesome-reveal";
 const DeliverySection = () => {
   return (
     <div className="mb-10">
-        <p className="text-center py-10 md:pt-20 md:text-2xl dark:text-slate-300  capitalize underline"> how we deliver our product</p>
+       <Fade>
+       <p className="text-center py-10 md:pt-20 md:text-2xl dark:text-slate-300  capitalize underline"> how we deliver our product</p>
    <div className="w-full min-h-96 flex justify-center items-center ">
    
      <Steps stepType="icon" borderType="dashed" className="w-full hidden md:flex gap-2  justify-center items-center mx-auto">
@@ -55,6 +56,8 @@ const DeliverySection = () => {
       </div>
     </Steps>
    </div>
+    </Fade>
+        
     </div>
   );
 }

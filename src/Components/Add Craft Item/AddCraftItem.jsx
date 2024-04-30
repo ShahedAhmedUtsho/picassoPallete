@@ -77,7 +77,6 @@ const [sub,setSub] = useState("none");
         }
         
         const stockStatus = form.stockStatus.value ;
-        console.log(stockStatus.toLowerCase())
         if( stockStatus.toLowerCase() !== "in stock" && stockStatus.toLowerCase() !== "made to order" ) {
             setModelHead("Error") ;
             setModelMessage("stockStatus should  'in Stock' / 'Made to Order' ")
@@ -93,7 +92,7 @@ const [sub,setSub] = useState("none");
             uid
 
         }
-        console.log(newCraft)
+        
 
 
 
@@ -115,7 +114,7 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
 })
 .then(res=>res.json()) 
 .then(data=>{
-    console.log(data)
+    
     setModelHead("Craft added successfully") ;
     setModelMessage(" go to all craft to see added item  ")
     openSuccessModal()

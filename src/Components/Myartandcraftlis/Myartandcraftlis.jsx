@@ -44,7 +44,7 @@ setIsActive(!isActive)
     const allCrafts = useLoaderData() ;
 
     const myCraftCollection = allCrafts.filter(Craft =>Craft.uid === UID) || [] ;
-    console.log(myCraftCollection)
+   
     const [myCollectionCraft,setMyCollectionCraft] =useState(myCraftCollection)
     
 const handleYes = ()=>{

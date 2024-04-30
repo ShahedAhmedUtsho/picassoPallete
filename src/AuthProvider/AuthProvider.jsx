@@ -71,7 +71,7 @@ const [deleteID,setDeleteID] =useState();
 const [reloadd,setReloadd]=useState();
 
 const handleDelete = (id)=>{
-  console.log("delete suck",id);
+  
 
 fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${id}`,{
   method:'DELETE'
@@ -79,7 +79,7 @@ fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${id}`,{
 }).then(res=>res.json())
 .then((data)=>
    { 
-    console.log(data) 
+   
     setModelHead('delete successful')
     setModelMessage("")
     openSuccessModal()
@@ -100,7 +100,7 @@ const handleTrash = (id,reloaded)=>{
   setReloadd(()=> reloaded)
   //  setReloadd(reloaded)
        setDeleteID(id)
-        console.log("trash" ,deleteID) ;
+        
           openDeleteModal()
 
 }
@@ -122,7 +122,6 @@ useEffect(() => {
    const unsubscribe = onAuthStateChanged (Auth, currentUser => {
     setUser(currentUser) ;
     setLoading(false)
-   console.log(currentUser)
    })
 
   return () => {
@@ -148,7 +147,6 @@ const AuthLogIn = (email,password) =>{
 const logOut = async() => {
     setLoading(true)
     return await signOut(Auth).then(() => {
-        console.log('Sign-out successful.')
 
 setModelHead("LogOut Successful")
 setModelMessage(

@@ -5,6 +5,7 @@ import { Link, useLoaderData,  } from "react-router-dom";
 import { Trash,Cube} from 'phosphor-react'
 import { Button } from 'keep-react'
 import PropTypes from 'prop-types'
+import { Fade } from "react-awesome-reveal";
 const CraftItemSection = () => {
   const [data,setData] = useState([])
   const [load,setLoad] = useState(true) ;
@@ -19,7 +20,7 @@ const CraftItemSection = () => {
       fetch(apiUrl)
       .then(res=>res.json())
       .then(data=>{
-          console.log(data)
+         
           setData(data)
           setLoad(false)
          
@@ -28,7 +29,7 @@ const CraftItemSection = () => {
   
     
   }, [])
-  console.log("Loading state after data loaded:", load);
+
   if (load === true) {
     return <div className="grid md:grid-cols-2 gap-10 w-full   mt-2">
     <Skeleton className="w-full  space-y-2.5 mx-auto grid  grid-cols-3 gap-3 ">
@@ -136,7 +137,8 @@ const CraftItemSection = () => {
     return (
       
         <div className="">
-        <h2 className="text-3xl text-center dark:text-slate-300  my-10 capitalize">
+         
+          <h2 className="text-3xl text-center dark:text-slate-300  my-10 capitalize">
             your added craft Collection 
         </h2>
         <div className="grid md:grid-cols-2 gap-3 w-full  mt-2">
@@ -148,7 +150,9 @@ const CraftItemSection = () => {
               
               
            firstEightItems.map((carft,index)=> <div className=" bg-[#384c5a2b]  relative  rounded-lg p-3" key={carft._id ? carft._id : index }> 
-            
+            <Fade>
+      
+    
               <div  className="grid lg:grid-cols-3 gap-3 capitalize lg:h-72 md:w-auto w-full  ">
               <div className=" lg:col-span-1  rounded-lg  h-72 ">
                 <img src={carft.photoURL} className="h-full w-full rounded-lg    object-cover" alt="" />
@@ -182,12 +186,16 @@ const CraftItemSection = () => {
               
 
               </div>
+
+              
               </div>
 
               </div>
-            
+              </Fade>
               
-              </div>)
+              </div>
+              
+              )
 
 
 
@@ -200,6 +208,8 @@ const CraftItemSection = () => {
 
 
     </div>
+    
+       
     </div>
     );
 };

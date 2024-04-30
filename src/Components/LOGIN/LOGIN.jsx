@@ -45,12 +45,12 @@ openErrorModal()
     const form = event.target ;
     const email = form.email.value ;
     const password = form.password.value ;
-    console.log(email,password)
+    
 
 
 AuthLogIn(email,password)
 .then(res=>{
-  console.log(res.user ,"login Successfully")
+  
   form.reset()
 
   
@@ -101,7 +101,7 @@ openErrorModal()
 const githubProvider = new GithubAuthProvider()
 const githubLogin = ()=>{
 
-console.log("okey")
+
 
   setLoading(true)
   if(user !== null ){
@@ -111,7 +111,7 @@ console.log("okey")
 return
 
   }
-  console.log("you are not logged in")
+  
 
 
   signInWithPopup(Auth,githubProvider)
@@ -147,7 +147,7 @@ openErrorModal()
 const googleProvider = new GoogleAuthProvider()
 const GoogleLogin = ()=>{
 
-console.log("okey")
+
 
   setLoading(true)
   if(user !== null ){
@@ -157,7 +157,7 @@ console.log("okey")
 return
 
   }
-  console.log("you are not logged in")
+ 
 
   
 

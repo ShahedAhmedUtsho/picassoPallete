@@ -83,7 +83,6 @@ const handleCraft = event =>{
     }
     
     const stockStatus = form.stockStatus.value ;
-    console.log(stockStatus.toLowerCase())
     if( stockStatus.toLowerCase() !== "in stock" && stockStatus.toLowerCase() !== "made to order" ) {
         setModelHead("Error") ;
         setModelMessage("stockStatus should  'in Stock' / 'Made to Order' ")
@@ -98,7 +97,7 @@ const handleCraft = event =>{
         stockStatus,uid
 
     }
-    console.log(UpdateCraft)
+   
 
 
 //mongodb & server connection 
@@ -112,7 +111,7 @@ body:JSON.stringify(UpdateCraft)
 })
 .then(res=>res.json()) 
 .then(data=>{
-console.log(data)
+
 setModelHead("Craft Update successfully") ;
 setModelMessage(" go to my craft to see added item  ")
 openSuccessModal()

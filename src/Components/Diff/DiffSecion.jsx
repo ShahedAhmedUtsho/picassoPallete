@@ -5,6 +5,7 @@ import {  Badge, Button,  Table ,Tooltip ,Divider,Drawer,Label, Textarea,Icon, I
 import {  Cube, ArrowRight ,Pen,ArrowUp } from "phosphor-react";
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { Envelope } from 'phosphor-react'
+import { Fade } from "react-awesome-reveal";
 
 
 const DiffSecion = () => {
@@ -15,15 +16,20 @@ const DiffSecion = () => {
 
             <div className="grid  md:grid-cols-2 gap-6">
                 <div className='bg order-2 px-5 md:px-0 flex flex-col gap-3   lg:gap-5'>
-                    <h2 className='lg:text-6xl md:text-4xl text-3xl font-medium dark:text-gray-100 text-slate-800 leading-[40px]  md:leading-[50px] lg:leading-[70px]   '>Do  you have <br />  a favorite painting?</h2>
-                    <p className='dark:text-slate-400 text-xs md:text-sm pr-7  md:pr-20 '>artwork that you'd love to have recreated? Our talented team of painters is here to bring your vision to life. Simply provide us with the details or a picture of the masterpiece, and we'll handle the rest.</p>
+                <Fade>
+                <h2 className='lg:text-6xl md:text-4xl text-3xl font-medium dark:text-gray-100 text-slate-800 leading-[40px]  md:leading-[50px] lg:leading-[70px]   '>Do  you have <br />  a favorite painting?</h2>
 
-                   <Button  variant="outline" size="sm" onClick={() => setIsOpen(!isOpen)} className=" w-44  md:mt-10 mt-5 lg:mt-20 bg-transparent  border-current  dark:text-slate-100 dark:border-slate-400 text-slate-100 px-2   bg-slate-600 hover:text-slate-100 hover:bg-slate-700 ">
+                <p className='dark:text-slate-400 text-xs md:text-sm pr-7  md:pr-20 '>artwork that you'd love to have recreated? Our talented team of painters is here to bring your vision to life. Simply provide us with the details or a picture of the masterpiece, and we'll handle the rest.</p>
+                <Button  variant="outline" size="sm" onClick={() => setIsOpen(!isOpen)} className=" w-44  md:mt-10 mt-5 lg:mt-20 bg-transparent  border-current  dark:text-slate-100 dark:border-slate-400 text-slate-100 px-2   bg-slate-600 hover:text-slate-100 hover:bg-slate-700 ">
               <span className="pr-2">
                 <ArrowUp size={24} />
               </span>
              Click to open
              </Button>
+    </Fade>
+                   
+
+                  
                 </div>
                 <div  className='w-full mx-auto rounded-xl order-1  relative'>
                 <h2 className=' absolute z-50 right-0 mt-3 md:text-3xl   bg-[#bf4ad1b3] capitalize text-white px-5 rounded-sm'>re-created</h2>
