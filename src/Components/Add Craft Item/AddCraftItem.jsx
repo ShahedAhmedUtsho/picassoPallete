@@ -19,6 +19,9 @@ import { Button, Icon, Input, Label,Textarea,Radio  } from 'keep-react'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
+import { Typewriter } from 'react-simple-typewriter'
+
+
  const AddCraftItem = () => {
 
 
@@ -133,19 +136,24 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
 
 
 
-
-
-
-
-
-
-
-
-
     }
   return (
    <div className='w-full min-h-[90vh] '>
-    <h2 className='md:text-4xl dark:text-slate-300 text-center mt-[6%]'> Add your Work </h2>
+    
+    <h2 className='md:text-4xl dark:text-slate-300 text-center mt-[6%]'> Add your  <span style={{  fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Art', '&', 'Craft']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span> </h2>
      <form  onSubmit={handleCraft} className="mx-auto mt-[2%] max-w-5xl space-y-2 my-20 rounded-lg border dark:bg-transparent dark:border-none p-8   shadow-md bg-[#00000034] md:dark:bg-slate-700">
         <div className='grid md:grid-cols-2 gap-4 md:p-3'>
 

@@ -6,6 +6,7 @@ import { Button,Modal, Toggle } from 'keep-react'
 import {  Gear, SignIn ,CaretDown} from 'phosphor-react'
 
 
+import { Typewriter } from 'react-simple-typewriter'
 const Myartandcraftlis = () => {
 
 
@@ -71,8 +72,19 @@ const handleAll = () => {
 
 if( myCraftCollection.length === 0 ){
     return <div className="w-full h-[80vh] gap-7 flex justify-center flex-col items-center ">
- <h2 className="text-3xl  text-center capitalize ">
-                you have not add any Art   </h2>
+ <h2 className="text-3xl  text-center capitalize text-slate-600 dark:text-slate-300 ">
+                    <span style={{  fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['you have not add any Art']}
+            loop={10}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>  </h2>
 
 
                 <Link    to={`/addcraftitem`} >
