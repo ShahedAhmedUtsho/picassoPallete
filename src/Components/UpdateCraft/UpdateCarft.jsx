@@ -1,4 +1,4 @@
-import  { useContext, useEffect } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { Navigate, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -15,10 +15,17 @@ import {
 
 
  } from 'phosphor-react'
-import { Button, Icon, Input, Label,Textarea  } from 'keep-react'
+import { Button, Icon, Input, Label,Textarea,Radio  } from 'keep-react'
 
 
 const UpdateCarft = () => {
+
+  // 1 subcatagory thing
+  const [sub,setSub] = useState("none");
+
+  // subcatagory thing 
+
+
   useEffect(() => {
     document.title ="PP - Update Craft"
    
@@ -44,7 +51,13 @@ const handleCraft = event =>{
     const form = event.target ; 
     const photoURL = form.photoURL.value ;
     const item_name = form.item_name.value ;
-    const subcategory_Name =form.subcategory_Name.value ;
+    const subcategory_Name = sub ;
+        if(subcategory_Name ==="none"){
+          setModelHead("Error") ;
+          setModelMessage("you have to select sub category")
+          openErrorModal()
+          return
+        }
     const short_description = form.short_description.value ;
     const price = form.price.value ;
     const rating = form.rating.value ;
@@ -157,16 +170,7 @@ console.log(error,"from post server catch")
           </fieldset>
     
     
-          <fieldset className="space-y-1">
-            <Label  className=' dark:text-slate-200' htmlFor="subcategory_Name">subcategory Name</Label>
-            <div className="relative">
-              <Input required name='subcategory_Name'  defaultValue={craft.subcategory_Name} id="subcategory_Name" placeholder="Enter subcategory" type="text" className="ps-11 rounded-sm" />
-              <Icon>
-                <AlignLeft size={19} color="#AFBACA" />
-              </Icon>
-            </div>
-          </fieldset>
-    
+      
     
          
     
@@ -232,7 +236,50 @@ console.log(error,"from post server catch")
     
       
     
-    
+          <div className='flex gap-10 '>
+<div className='grid gap-2'>
+
+
+      <fieldset onClick={()=>setSub("Landscape Painting")}  className="flex items-center gap-2">
+        <Radio id="LandscapePainting" name="country" />
+        <Label htmlFor="LandscapePainting">Landscape Painting</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Portrait Drawing")} className="flex items-center gap-2">
+        <Radio id="PortraitDrawing" name="country" />
+        <Label htmlFor="PortraitDrawing">Portrait Drawing</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Watercolour Painting")} className="flex items-center gap-2">
+        <Radio id="WatercolourPainting" name="country"  />
+        <Label htmlFor="WatercolourPainting">Watercolour Painting</Label>
+      </fieldset>
+
+
+</div>
+
+    <div className='grid gap-2'>
+
+    <fieldset onClick={()=>setSub("Oil Painting")} className="flex items-center gap-2">
+        <Radio id="OilPainting" name="country" />
+        <Label htmlFor="OilPainting">Oil Painting</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Charcoal Sketching")} className="flex items-center gap-2">
+        <Radio id="CharcoalSketching" name="country" />
+        <Label htmlFor="CharcoalSketching">Charcoal Sketching</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Cartoon Drawing")} className="flex items-center gap-2">
+        <Radio id="CartoonDrawing" name="country" />
+        <Label htmlFor="CartoonDrawing">Cartoon Drawing</Label>
+      </fieldset>
+    </div>
+</div>
     
     
     

@@ -30,12 +30,12 @@ useEffect(() => {
     
     return (
         <div>
-           <div className='grid gap-2   lg:grid-cols-3'>
+           <div className='grid gap-2 mb-10   lg:grid-cols-3'>
 {
     data.map((cat,index)=><Link to={`/subcategory/${cat.subcategory_Name}`} key={cat._id}>
     <div  className=' lg:h-44  md:h-52  grid  grid-cols-5   rounded-lg  w-full border-2'>
-        <div className='h-full  col-span-2'>
-            <img className=' object-cover bg-slate-400 w-full h-full' src={cat.image} alt="" />
+        <div className='h-full overflow-hidden  bg-white bg-center bg-cover url   col-span-2'>
+            <img className='   object-cover bg-slate-400 w-[100%] h-[100%]' src={cat.image} alt="" />
         </div>
         <div className="info col-span-3 p-3 ">
             <h2 className=' dark:text-slate-300 font-semibold text-slate-700 capitalize text-xl mb-3 md:text-2xl'>

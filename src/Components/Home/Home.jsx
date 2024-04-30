@@ -21,7 +21,9 @@ const Home = () => {
           
            <DeliverySection></DeliverySection>
            <DiffSecion></DiffSecion>
+           <h2  className="md:text-2xl text-xl mb-5 dark:text-slate-300">Category : </h2>
            <Catagory></Catagory>
+           
             
         </div>
     );

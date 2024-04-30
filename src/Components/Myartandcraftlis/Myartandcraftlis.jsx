@@ -131,7 +131,8 @@ Custom by : {dropText} <CaretDown size={20} />
 
                   <div className=" lg:col-span-2 md: ">
                   <h2 className="lg:text-2xl font-semibold dark:text-slate-300   capitalize">{carft.item_name}</h2>
-                  <h3 className="text-base mt-2 dark:text-slate-300">price : {carft.price}</h3>
+                  <h3 className="text-base mt-2 dark:text-slate-300">price : {carft.price}$</h3>
+                  <h3 className="text-base mt-2 dark:text-slate-300">subcategory : {carft.subcategory_Name}</h3>
                   <h3 className="text-base mt-2 dark:text-slate-300">rating : {carft.rating}</h3>
                   <h3 className="text-base mt-2 dark:text-slate-300">customization : {carft.Customization}</h3>
                   <h3 className="text-base mt-2 dark:text-slate-300">stockStatus : {carft.stockStatus}</h3>

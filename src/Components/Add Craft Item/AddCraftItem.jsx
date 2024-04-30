@@ -15,12 +15,18 @@ import {
 
 
  } from 'phosphor-react'
-import { Button, Icon, Input, Label,Textarea  } from 'keep-react'
-import { useContext, useEffect } from 'react'
+import { Button, Icon, Input, Label,Textarea,Radio  } from 'keep-react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 
  const AddCraftItem = () => {
 
+
+
+  // 1 subcatagory thing
+const [sub,setSub] = useState("none");
+
+// subcatagory thing
 
   useEffect(() => {
     document.title ="PP - Add Art & Craft"
@@ -34,7 +40,13 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
         const form = event.target ; 
         const photoURL = form.photoURL.value ;
         const item_name = form.item_name.value ;
-        const subcategory_Name =form.subcategory_Name.value ;
+        const subcategory_Name = sub ;
+        if(subcategory_Name ==="none"){
+          setModelHead("Error") ;
+          setModelMessage("you have to select sub category")
+          openErrorModal()
+          return
+        }
         const short_description = form.short_description.value ;
         const price = form.price.value ;
         const rating = form.rating.value ;
@@ -76,8 +88,16 @@ import { AuthContext } from '../../AuthProvider/AuthProvider'
         }
         console.log(newCraft)
 
+
+
         // https://assaiment10-backend.vercel.app/
 //mongodb & server connection 
+
+
+
+
+
+
 fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
     method: 'Post',
     headers:{
@@ -97,6 +117,10 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
 .catch(error=>{
     console.log(error,"from post server catch")
 })
+
+
+
+
 
 
 //mongodb & server connection 
@@ -144,15 +168,7 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
       </fieldset>
 
 
-      <fieldset className="space-y-1">
-        <Label  className=' dark:text-slate-200' htmlFor="subcategory_Name">subcategory Name</Label>
-        <div className="relative">
-          <Input required name='subcategory_Name ' id="subcategory_Name" placeholder="Enter subcategory" type="text" className="ps-11 rounded-sm" />
-          <Icon>
-            <AlignLeft size={19} color="#AFBACA" />
-          </Icon>
-        </div>
-      </fieldset>
+      
 
 
      
@@ -167,6 +183,8 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
           </Icon>
         </div>
       </fieldset>
+
+      
       <fieldset className="space-y-1">
         <Label className=' dark:text-slate-200' htmlFor="rating">rating (0-5) </Label>
         <div className="relative">
@@ -187,7 +205,6 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
           </Icon>
         </div>
       </fieldset>
-
 
 
 
@@ -219,7 +236,57 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
 
   
 
+<div>
+<legend className="mb-1 text-body-3  text-metal-600">Subcategory Name</legend>
 
+{/* subcatagory */}
+
+<div className='flex gap-10 '>
+<div className='grid gap-2'>
+
+
+      <fieldset onClick={()=>setSub("Landscape Painting")}  className="flex items-center gap-2">
+        <Radio id="LandscapePainting" name="country" />
+        <Label htmlFor="LandscapePainting">Landscape Painting</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Portrait Drawing")} className="flex items-center gap-2">
+        <Radio id="PortraitDrawing" name="country" />
+        <Label htmlFor="PortraitDrawing">Portrait Drawing</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Watercolour Painting")} className="flex items-center gap-2">
+        <Radio id="WatercolourPainting" name="country"  />
+        <Label htmlFor="WatercolourPainting">Watercolour Painting</Label>
+      </fieldset>
+
+
+</div>
+
+    <div className='grid gap-2'>
+
+    <fieldset onClick={()=>setSub("Oil Painting")} className="flex items-center gap-2">
+        <Radio id="OilPainting" name="country" />
+        <Label htmlFor="OilPainting">Oil Painting</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Charcoal Sketching")} className="flex items-center gap-2">
+        <Radio id="CharcoalSketching" name="country" />
+        <Label htmlFor="CharcoalSketching">Charcoal Sketching</Label>
+      </fieldset>
+
+
+      <fieldset onClick={()=>setSub("Cartoon Drawing")} className="flex items-center gap-2">
+        <Radio id="CartoonDrawing" name="country" />
+        <Label htmlFor="CartoonDrawing">Cartoon Drawing</Label>
+      </fieldset>
+    </div>
+</div>
+
+</div>
 
 
 
@@ -235,6 +302,9 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
       <Textarea className='rounded-sm' required name='short_description' id="short description" placeholder="Enter short description" />
      
     </fieldset>
+
+
+    
       <Button size="sm" color="secondary" type="submit" className='px-8'>
       Add
       </Button>
