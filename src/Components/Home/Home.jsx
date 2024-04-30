@@ -4,14 +4,18 @@ import CraftItemSection from "../CraftItemsSection/CraftItemSection";
 import DeliverySection from "../DelevarySection/DelevarySection";
 import DiffSecion from "../Diff/DiffSecion";
 import Catagory from "../Catagory/Catagory";
+import { useEffect } from "react";
 
 
 
 
 const Home = () => {
 
-   
-  
+   useEffect
+    useEffect(() => {
+        document.title ="PicassoPallet"
+       
+       }, [])
 
 
     return (

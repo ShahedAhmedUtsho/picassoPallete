@@ -11,6 +11,15 @@ import Auth from '../../Firebase/Firebase.config'
 import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen ,User ,Image,Eye,EyeSlash} from 'phosphor-react'
 
  const  Register = () => {
+
+
+  useEffect(() => {
+    document.title ="PP - register"
+   
+   }, [])
+
+
+
   const navigate = useNavigate() ;
   const location = useLocation();
   const[visible,setVisible] = useState(true)

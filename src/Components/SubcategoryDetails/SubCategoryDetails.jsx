@@ -13,7 +13,10 @@ const SubCategoryDetails = () => {
 
 const [data,setData] = useState([]);
 
+
+
 useEffect(() => {
+    document.title =`PP - ${params.CategoryName}`
     const apiUrl = 'https://assaiment10-backend.vercel.app/allartandcraftitems';
     fetch(apiUrl)
     .then(res=>res.json())
