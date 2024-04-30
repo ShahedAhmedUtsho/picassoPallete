@@ -138,7 +138,7 @@ const CraftItemSection = () => {
       
         <div className="">
          
-          <h2 className="text-3xl text-center dark:text-slate-300  my-10 capitalize">
+          <h2 className="lg:text-3xl text-xl text-center dark:text-slate-300  my-10 capitalize">
             your added craft Collection 
         </h2>
         <div className="grid md:grid-cols-2 gap-3 w-full  mt-2">
