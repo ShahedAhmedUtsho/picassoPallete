@@ -4,7 +4,7 @@
 
 import { Button, Card, Icon, Input, Label } from 'keep-react'
 import { Link,  useLocation,  useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { updateProfile } from 'firebase/auth'
 import Auth from '../../Firebase/Firebase.config'
