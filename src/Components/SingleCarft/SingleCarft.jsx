@@ -28,7 +28,9 @@ const SingleCarft = () => {
 
           <p className="text-lg  mb-4"> Stock Status: {carft.stockStatus}</p>
                   <p className=" text-gray-800 text-lg mb-4">Category: {carft.subcategory_Name}</p>
-             <p className="text-lg text-gray-800 mb-4"> Contact  Seller: {carft.email}</p>
+              <p className=" text-gray-800 mb-4 text-2xl">Provider :{carft.username} </p>
+
+             <p className="text-lg text-gray-800 mb-4"> Provider Email: {carft.email}</p>
         </div>
       </div>
 
