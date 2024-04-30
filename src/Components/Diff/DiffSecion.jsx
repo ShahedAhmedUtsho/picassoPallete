@@ -2,7 +2,7 @@ import React from 'react';
 'use client'
 import { useState } from 'react'
 import {  Badge, Button,  Table ,Tooltip ,Divider,Drawer,Label, Textarea,Icon, Input, } from "keep-react";
-import {  Cube, ArrowRight ,Pen } from "phosphor-react";
+import {  Cube, ArrowRight ,Pen,ArrowUp } from "phosphor-react";
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 import { Envelope } from 'phosphor-react'
 
@@ -20,9 +20,9 @@ const DiffSecion = () => {
 
                    <Button  variant="outline" size="sm" onClick={() => setIsOpen(!isOpen)} className=" w-44  md:mt-10 mt-5 lg:mt-20 bg-transparent  border-current  dark:text-slate-100 dark:border-slate-400 text-slate-100 px-2   bg-slate-600 hover:text-slate-100 hover:bg-slate-700 ">
               <span className="pr-2">
-                <Cube size={24} />
+                <ArrowUp size={24} />
               </span>
-             Message Us
+             Click to open
              </Button>
                 </div>
                 <div  className='w-full mx-auto rounded-xl order-1  relative'>
@@ -59,7 +59,7 @@ const DiffSecion = () => {
       <Button type="submit" onClick={() => {
         setIsOpen(false)
       }} className="bg-metal-900" color="secondary">
-              Explore Now
+              Message
             </Button>
     </form>
            

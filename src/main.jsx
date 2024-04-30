@@ -17,6 +17,7 @@ import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import SingleCarft from './Components/SingleCarft/SingleCarft.jsx';
 import UpdateCarft from './Components/UpdateCraft/UpdateCarft.jsx';
+import SubCategoryDetails from './Components/SubcategoryDetails/SubCategoryDetails.jsx';
 
 
 
@@ -28,8 +29,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Home></Home>,
-        loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
+        element:<Home></Home>
       },
       {
         path:'/login',
@@ -53,9 +53,6 @@ const router = createBrowserRouter([
         path:'/myartandcraftlist',
         element:<PrivetRoute><Myartandcraftlis></Myartandcraftlis></PrivetRoute>,
         loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
-      },{
-        path:'/',
-        element:<Home></Home>,
       },
       {
         path: "/allartandcraftitems/:craftID",
@@ -66,6 +63,11 @@ const router = createBrowserRouter([
         path: "/myartandcraftlist/:craftID",
         element:<PrivetRoute><UpdateCarft></UpdateCarft></PrivetRoute>,
         loader:({params})=>fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${params.craftID}`)
+      } ,
+      {
+        path: "/subcategory/:CategoryName",
+        element:<SubCategoryDetails></SubCategoryDetails>,
+        
       } 
     ]
   },

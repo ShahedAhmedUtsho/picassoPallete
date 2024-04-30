@@ -15,7 +15,6 @@ const Header = () => {
    
    
 
-
     const link = <>
     <NavLink className={`navlink text-black dark:text-[#ddd]`} to="/">Home</NavLink>
   {
@@ -57,7 +56,7 @@ const Header = () => {
 
         <Navbar.Container className="flex gap-2">
 {/* Tooltip */}
-{  <Tooltip placement="bottom" trigger="click" showArrow={false}>
+{  <Tooltip placement="bottom" trigger="hover" showArrow={false}>
       <Tooltip.Action  className=" bg-transparent p-0">
      
 
@@ -78,15 +77,28 @@ const Header = () => {
        
   
 
-
+      {
+        user ?  
+        <p className="text-xs underline bg-slate-300 px-2 py-1 btn">
+          {
+            user.displayName
+          }
+        </p>
         
-        <Link to="profile" className="text-xs  font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] ">Profile</Link>
+        :  ""
+       }
+        
+      
         <div className="mt-2 capitalize">
-        <div className="text-xs  font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] "> 
+        
+        <div className="text-xs  text-center font-semibold rounded-full py-1 px-2 bg-[#ddd]  text-[#000000c8] "> 
 
         
        {
-        user ?  <p className="text-xs underline btn" onClick={logOut}>logOut</p> :  <Link className="text-xs underline btn" to="/login" >Login</Link>
+        user ?  <p className="text-xs underline btn" onClick={logOut}>logOut</p> 
+        
+        
+        :  <Link className="text-xs underline btn" to="/login" >Login</Link>
        }
         
         
