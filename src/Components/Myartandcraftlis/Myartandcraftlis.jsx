@@ -37,12 +37,12 @@ setIsActive(!isActive)
 
 
 
-    const {user,handleDelete,handleTrash,} = useContext(AuthContext);
-    const myEmail = user.email ;
+    const {user,handleTrash} = useContext(AuthContext);
+    const UID = user.uid ;
 
     const allCrafts = useLoaderData() ;
 
-    const myCraftCollection = allCrafts.filter(Craft =>Craft.email === myEmail) || [] ;
+    const myCraftCollection = allCrafts.filter(Craft =>Craft.uid === UID) || [] ;
     console.log(myCraftCollection)
     const [myCollectionCraft,setMyCollectionCraft] =useState(myCraftCollection)
     

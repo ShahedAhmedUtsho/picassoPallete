@@ -135,7 +135,7 @@ const CraftItemSection = () => {
     
     return (
       
-        <div className="min-h-[90vh]">
+        <div className="">
         <h2 className="text-3xl text-center dark:text-slate-300  my-10 capitalize">
             your added craft Collection 
         </h2>

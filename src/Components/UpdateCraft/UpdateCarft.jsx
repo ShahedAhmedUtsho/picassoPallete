@@ -52,6 +52,7 @@ const handleCraft = event =>{
     const photoURL = form.photoURL.value ;
     const item_name = form.item_name.value ;
     const subcategory_Name = sub ;
+    const uid = user.uid
         if(subcategory_Name ==="none"){
           setModelHead("Error") ;
           setModelMessage("you have to select sub category")
@@ -94,7 +95,7 @@ const handleCraft = event =>{
         email,username,
         photoURL,item_name,subcategory_Name,short_description,
         price,rating,processing_time,Customization,
-        stockStatus
+        stockStatus,uid
 
     }
     console.log(UpdateCraft)
@@ -234,26 +235,28 @@ console.log(error,"from post server catch")
             </div>
           </fieldset>
     
-      
-    
+      <div>
+          <h3  className=' dark:text-slate-200' >Subcategory Name </h3>
           <div className='flex gap-10 '>
+        
 <div className='grid gap-2'>
+  
 
 
       <fieldset onClick={()=>setSub("Landscape Painting")}  className="flex items-center gap-2">
-        <Radio id="LandscapePainting" name="country" />
+        <Radio id="LandscapePainting" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="LandscapePainting">Landscape Painting</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Portrait Drawing")} className="flex items-center gap-2">
-        <Radio id="PortraitDrawing" name="country" />
+        <Radio id="PortraitDrawing" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="PortraitDrawing">Portrait Drawing</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Watercolour Painting")} className="flex items-center gap-2">
-        <Radio id="WatercolourPainting" name="country"  />
+        <Radio id="WatercolourPainting" name="country" className='  border-black dark:border-slate-300'  />
         <Label htmlFor="WatercolourPainting">Watercolour Painting</Label>
       </fieldset>
 
@@ -263,24 +266,24 @@ console.log(error,"from post server catch")
     <div className='grid gap-2'>
 
     <fieldset onClick={()=>setSub("Oil Painting")} className="flex items-center gap-2">
-        <Radio id="OilPainting" name="country" />
+        <Radio id="OilPainting" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="OilPainting">Oil Painting</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Charcoal Sketching")} className="flex items-center gap-2">
-        <Radio id="CharcoalSketching" name="country" />
+        <Radio id="CharcoalSketching" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="CharcoalSketching">Charcoal Sketching</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Cartoon Drawing")} className="flex items-center gap-2">
-        <Radio id="CartoonDrawing" name="country" />
+        <Radio id="CartoonDrawing" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="CartoonDrawing">Cartoon Drawing</Label>
       </fieldset>
     </div>
 </div>
-    
+</div>
     
     
     

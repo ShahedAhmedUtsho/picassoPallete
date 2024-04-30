@@ -8,6 +8,8 @@ const Catagory = () => {
 
     
 
+    
+
 const [data,setData] = useState([])
 
 useEffect(() => {

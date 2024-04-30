@@ -220,7 +220,7 @@ openErrorModal()
       <Card.Content className="space-y-3">
         <Card.Header>
           <Card.Title className='dark:text-fuchsia-400 md:dark:text-fuchsia-900'>Sign In</Card.Title>
-          <Card.Description className='dark:text-fuchsia-700 md:dark:text-fuchsia-700'>If you don&apos;t have any account then just <Link to="/register" className='font-semibold dark:text-fuchsia-400 md:dark:text-fuchsia-700'>Register</Link></Card.Description>
+          <Card.Description className='dark:text-fuchsia-700 md:dark:text-fuchsia-700'>If you don&apos;t have any account then just <Link to="/register" className='font-semibold text-fuchsia-600 dark:text-fuchsia-400 md:dark:text-fuchsia-700'>Register</Link></Card.Description>
         </Card.Header>
        
         

@@ -34,8 +34,10 @@ const Header = () => {
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container className="flex items-center">
           <Navbar.Brand>
-           <img className="md:max-w-40 md:block hidden max-w-29 " src={logo} alt="" /> 
+         <Link to="/">
+         <img className="md:max-w-40 md:block hidden max-w-29 " src={logo} alt="" /> 
            <img className="md:max-w-40 md:hidden max-w-29 w-16 " src={logoSM} alt="" /> 
+         </Link>
 
 
 
@@ -56,7 +58,7 @@ const Header = () => {
 
         <Navbar.Container className="flex gap-2">
 {/* Tooltip */}
-{  <Tooltip placement="bottom" trigger="hover" showArrow={false}>
+{  <Tooltip  placement="bottom" trigger="hover" showArrow={false}>
       <Tooltip.Action  className=" bg-transparent p-0">
      
 
@@ -73,7 +75,7 @@ const Header = () => {
 
         </Tooltip.Action>
 
-      <Tooltip.Content className=" bg-transparent border-[1px] rounded-[5px]" >
+      <Tooltip.Content className=" bg-transparent border-[1px] bg-white z-50   rounded-[5px]" >
        
   
 

@@ -152,7 +152,7 @@ Navigate('/')
 <Card.Content className="space-y-3">
 <Card.Header>
   <Card.Title className='dark:text-fuchsia-400 md:dark:text-fuchsia-900'>Create an account</Card.Title>
-  <Card.Description className='dark:text-fuchsia-700 md:dark:text-fuchsia-700 '>If you  have  account then just <Link to="/login" className='font-semibold dark:text-fuchsia-400 md:dark:text-fuchsia-700'>Login</Link></Card.Description>
+  <Card.Description className='dark:text-fuchsia-700  md:dark:text-fuchsia-700 '>If you  have  account then just <Link to="/login" className='font-semibold dark:text-fuchsia-400 md:dark:text-fuchsia-700 text-fuchsia-600'>Login</Link></Card.Description>
 </Card.Header>
 
 

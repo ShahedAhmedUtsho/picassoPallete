@@ -7,25 +7,25 @@ import { Link } from "react-router-dom";
 const AllCraftTable = ( {allCraft}) => {
   
   return (
-    <div>
+    <div className="mt-20">
         <Table showCheckbox={false} showBorder={false} striped={true} className="  mb-10 hidden md:table">
-      <Table.Caption>
+      <Table.Caption className="dark:bg-slate-800">
         <div className="my-5 flex items-center justify-between px-6">
           <div className="flex items-center gap-5">
-            <p className="text-body-1 font-semibold text-metal-600">All Craft & Art</p>
+            <p className="text-body-1 font-semibold text-metal-600 dark:text-slate-300">All Craft & Art</p>
             <Badge size="xs" color="secondary" className="py-[0.2em] px-[0.8em]">
               {allCraft.length}
             </Badge>
           </div>
           <div  className="flex items-center gap-5">
-            <Link to="/addcraftitem"><Button  variant="outline" size="sm" className=" bg-transparent  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
+            <Link to="/addcraftitem"><Button  variant="outline" size="sm" className=" bg-transparent dark:text-slate-100  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
               <span className="pr-2">
                 <Cube size={24} />
               </span>
              Add New
             </Button></Link>
             <Link to="/myartandcraftlist">
-            <Button variant="outline" size="sm" className=" bg-transparent  border-current text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
+            <Button variant="outline" size="sm" className=" bg-transparent  border-current dark:hover:bg-fuchsia-50 dark:hover:text-fuchsia-500 dark:bg-fuchsia-100 dark:text-fuchsia-600 text-fuchsia-700  hover:text-fuchsia-500 hover:bg-fuchsia-100 ">
               <span className="pr-2">
                 <Cube size={24} />
               </span>
@@ -36,40 +36,40 @@ const AllCraftTable = ( {allCraft}) => {
           </div>
         </div>
       </Table.Caption>
-      <Table.Head>
+      <Table.Head className="dark:bg-slate-700">
       <Table.HeadCell>Serial</Table.HeadCell>
         <Table.HeadCell>Craft Name</Table.HeadCell>
         <Table.HeadCell className="min-w-[152px]">Price</Table.HeadCell>
         <Table.HeadCell className="min-w-[100px]">Customization</Table.HeadCell>
-        <Table.HeadCell className="min-w-[240px]">Provider Name</Table.HeadCell>
+        <Table.HeadCell className="min-w-[240px]">stockStatus</Table.HeadCell>
        
         <Table.HeadCell className="min-w-[100px]" />
       </Table.Head>
 
 
 
-      <Table.Body className="divide-gray-25 divide-y">
+      <Table.Body className="divide-gray-25 dark:bg-slate-300    divide-y">
 
 
         
          {
-            allCraft.map((aCraft ,index)=>    <Table.Row key={aCraft._id} className="bg-white">
-            <Table.Cell>
+            allCraft.map((aCraft ,index)=>    <Table.Row key={aCraft._id} >
+            <Table.Cell className="dark:bg-slate-700">
                 <p>{index + 1}</p>
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell className="dark:bg-slate-700  dark:text-slate-400">
                 <p>{aCraft.item_name}</p>
               </Table.Cell>
-              <Table.Cell>
-                <p>{aCraft.price} $ </p>
+              <Table.Cell className="dark:bg-slate-700 dark:text-slate-400">
+                <p>${aCraft.price} </p>
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell className="dark:bg-slate-700 dark:text-slate-400">
                 <p>{aCraft.Customization}  </p>
               </Table.Cell>
-              <Table.Cell> {aCraft.username}</Table.Cell>
+              <Table.Cell className="dark:bg-slate-700 dark:text-slate-400"> {aCraft.stockStatus}</Table.Cell>
               
              
-              <Table.Cell>
+              <Table.Cell className="dark:bg-slate-700 dark:text-slate-400">
 
 
 
@@ -170,11 +170,11 @@ const AllCraftTable = ( {allCraft}) => {
             <Table.Body className="divide-gray-25 divide-y">
             <Table.Row className=" flex justify-between dark:!bg-transparent    w-screen items-center">
                <Table.Cell className="font-semibold">
-                 <p>Provider name :</p>
+                 <p>stockStatus :</p>
                </Table.Cell>
       
                <Table.Cell className=" text-right ">
-               {aCraft.username}
+               {aCraft.stockStatus}
                  </Table.Cell>
              </Table.Row>
             </Table.Body>
@@ -196,7 +196,7 @@ const AllCraftTable = ( {allCraft}) => {
                </Table.Cell>
       
                <Table.Cell className=" text-right ">
-               <p>{aCraft.price} $ </p>
+               <p>${aCraft.price} </p>
                  </Table.Cell>
              </Table.Row>
             </Table.Body>

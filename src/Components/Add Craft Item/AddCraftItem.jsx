@@ -35,12 +35,15 @@ const [sub,setSub] = useState("none");
     const {user, openErrorModal, setModelMessage,
         setModelHead,
         openSuccessModal,} = useContext(AuthContext)
+
+      
     const handleCraft = event =>{
         event.preventDefault() ;
         const form = event.target ; 
         const photoURL = form.photoURL.value ;
         const item_name = form.item_name.value ;
         const subcategory_Name = sub ;
+        const uid = user.uid ;
         if(subcategory_Name ==="none"){
           setModelHead("Error") ;
           setModelMessage("you have to select sub category")
@@ -83,7 +86,8 @@ const [sub,setSub] = useState("none");
             email,username,
             photoURL,item_name,subcategory_Name,short_description,
             price,rating,processing_time,Customization,
-            stockStatus
+            stockStatus,
+            uid
 
         }
         console.log(newCraft)
@@ -112,7 +116,7 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
     setModelHead("Craft added successfully") ;
     setModelMessage(" go to all craft to see added item  ")
     openSuccessModal()
-    // form.reset()
+    form.reset()
 })
 .catch(error=>{
     console.log(error,"from post server catch")
@@ -141,7 +145,7 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
     }
   return (
    <div className='w-full min-h-[90vh] '>
-    <h2 className='md:text-4xl text-center mt-[6%]'> Add your Work </h2>
+    <h2 className='md:text-4xl dark:text-slate-300 text-center mt-[6%]'> Add your Work </h2>
      <form  onSubmit={handleCraft} className="mx-auto mt-[2%] max-w-5xl space-y-2 my-20 rounded-lg border dark:bg-transparent dark:border-none p-8   shadow-md bg-[#00000034] md:dark:bg-slate-700">
         <div className='grid md:grid-cols-2 gap-4 md:p-3'>
 
@@ -242,23 +246,23 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
 {/* subcatagory */}
 
 <div className='flex gap-10 '>
-<div className='grid gap-2'>
+<div className='grid gap-2 dark:text-slate-300'>
 
 
       <fieldset onClick={()=>setSub("Landscape Painting")}  className="flex items-center gap-2">
-        <Radio id="LandscapePainting" name="country" />
+        <Radio id="LandscapePainting" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="LandscapePainting">Landscape Painting</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Portrait Drawing")} className="flex items-center gap-2">
-        <Radio id="PortraitDrawing" name="country" />
+        <Radio id="PortraitDrawing" className='  border-black dark:border-slate-300' name="country" />
         <Label htmlFor="PortraitDrawing">Portrait Drawing</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Watercolour Painting")} className="flex items-center gap-2">
-        <Radio id="WatercolourPainting" name="country"  />
+        <Radio id="WatercolourPainting" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="WatercolourPainting">Watercolour Painting</Label>
       </fieldset>
 
@@ -268,19 +272,19 @@ fetch('https://assaiment10-backend.vercel.app/allartandcraftitems',{
     <div className='grid gap-2'>
 
     <fieldset onClick={()=>setSub("Oil Painting")} className="flex items-center gap-2">
-        <Radio id="OilPainting" name="country" />
+        <Radio id="OilPainting" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="OilPainting">Oil Painting</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Charcoal Sketching")} className="flex items-center gap-2">
-        <Radio id="CharcoalSketching" name="country" />
+        <Radio id="CharcoalSketching" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="CharcoalSketching">Charcoal Sketching</Label>
       </fieldset>
 
 
       <fieldset onClick={()=>setSub("Cartoon Drawing")} className="flex items-center gap-2">
-        <Radio id="CartoonDrawing" name="country" />
+        <Radio id="CartoonDrawing" name="country" className='  border-black dark:border-slate-300' />
         <Label htmlFor="CartoonDrawing">Cartoon Drawing</Label>
       </fieldset>
     </div>
