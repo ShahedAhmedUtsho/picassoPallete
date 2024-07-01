@@ -30,12 +30,15 @@ const currentData = data.slice(startIndex,(startIndex+itemPerPage))
             {item.item_name}</div>)}
           </div>
 <div className="my-5 mx-auto">
+<button 
+disabled={currentPage === 1}
 
+className='p-2 disabled:opacity-50 border px-5 mx-2 rounded-md' onClick={()=>{setCurrentPage(currentPage -1)}} type='button'>previous</button>
 {Array.from({length:totalpage},(_, index)=>(
 
 
 
-<button key={index} onClick={()=>{setCurrentPage(index+1)}} className={`p-2 border px-5 mx-2 ${currentPage === index+1 ? 'bg-slate-300 text-slate-600' : 'bg-slate-600' } rounded-md`}>
+<button key={index}  onClick={()=>{setCurrentPage(index+1)}} className={`p-2 border px-5 mx-2 ${currentPage === index+1 ? 'bg-slate-300 text-slate-600' : 'bg-slate-600' } rounded-md`}>
 {index+1}
 </button>
 )
@@ -44,6 +47,7 @@ const currentData = data.slice(startIndex,(startIndex+itemPerPage))
     
 
 )}
+<button className='p-2 disabled:opacity-50 border px-5 mx-2 rounded-md' disabled={currentPage === totalpage} onClick={()=>{setCurrentPage(currentPage +1)}} type='button'>next</button>
 </div>
 
 
