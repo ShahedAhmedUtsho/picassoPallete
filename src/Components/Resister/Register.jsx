@@ -22,6 +22,8 @@ import { Envelope, FacebookLogo, GoogleLogo, Lock,GithubLogo, Cube,Pen ,User ,Im
 
   const navigate = useNavigate() ;
   const location = useLocation();
+
+  
   const[visible,setVisible] = useState(true)
   const eysToggle = () =>{
     setVisible(!visible)

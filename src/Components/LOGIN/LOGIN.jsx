@@ -13,6 +13,11 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../AuthProvider/AuthProvider'
 import { GithubAuthProvider, signInWithPopup,  GoogleAuthProvider } from 'firebase/auth';
 
+
+import axios from 'axios';
+
+
+
  const Login = () => {
   const location = useLocation()
   const navigate = useNavigate();
@@ -51,9 +56,35 @@ openErrorModal()
 AuthLogIn(email,password)
 .then(res=>{
   
-  form.reset()
+const loggedInUser = res.user ;
 
-  
+const JwtUser = {email}
+// get access token  
+
+  axios.post('http://localhost:3000/jwt',JwtUser,
+{
+  withCredentials:true
+})
+  .then(res =>{
+    const data = res.data ; 
+    console.log(data)
+    if(data.success){
+
+navigate(location?.state?location.state : '/')
+    }
+
+  })
+  .catch(error => {
+    console.log(error.message ,"error mess") 
+    return 
+  })
+
+
+
+
+console.log("in then")
+
+  form.reset()
 setModelHead("Login Successfully")
 setModelMessage(
   <>
@@ -65,18 +96,17 @@ setModelMessage(
 );
 
 
-navigate(location?.state?location.state : '/')
-
+// navigate(location?.state?location.state : '/')
 
 openSuccessModal()
 
-
-
-
-
 })
+
+
+
 .catch(error => {
 console.log(error.message)
+console.log("in catch")
 
 setModelHead('Error')
 setModelMessage(error.message)

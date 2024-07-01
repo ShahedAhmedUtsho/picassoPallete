@@ -1,14 +1,53 @@
-import { useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import {  useParams } from "react-router-dom";
 
 
 const SingleCarft = () => {
+  const params = useParams() ;
+ const url = `http://localhost:3000/allartandcraftitems/${params.craftID}`
+  const [carft,setCraft] = useState(null)
+  console.log(params)
   useEffect(() => {
-    document.title ="PP - craft Details"
+    // document.title ="PP - craft Details"
+
+    axios.get(url,{withCredentials:true})
+    .then(res=>{
+        const data = res.data ;
+        setCraft(data)
+        console.log(carft)
+        console.log("success")
+    })
+    .catch(error =>{
+      console.log(error.message)
+    })
+
+
+// fetch(`http://localhost:3000/allartandcraftitems/${params.craftID}`)
+// .then(res=>res.json())
+// .then(data=>{
+  
+//   console.log(data)
+// })
+// .catch(error =>{
+//     console.log(error.message)
+//   })
+
+
+
+
+
    
    }, [])
-    const carft = useLoaderData();
-    return (
+
+console.log(carft)
+    if(!carft ){
+      console.log('am in loading')
+      return <p>none</p>
+    }
+    console.log('am out')
+    if(carft){
+      return (
         <div className="max-w-2xl mx-auto px-3">
             <div className=" lg:h-[500px] my-10  mx-auto flex justify-center items-center"> 
               <img className=" object-cover   rounded-md  h-full" src={carft.photoURL} alt="" />
@@ -38,6 +77,7 @@ const SingleCarft = () => {
             
        
     );
+    }
 };
 
 export default SingleCarft;

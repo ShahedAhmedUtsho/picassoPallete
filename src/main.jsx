@@ -18,6 +18,7 @@ import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import SingleCarft from './Components/SingleCarft/SingleCarft.jsx';
 import UpdateCarft from './Components/UpdateCraft/UpdateCarft.jsx';
 import SubCategoryDetails from './Components/SubcategoryDetails/SubCategoryDetails.jsx';
+import Pagination from './Components/pagination/Pagination.jsx';
 
 
 
@@ -41,9 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allartandcraftitems',
-        element:<AllArtCraftItems></AllArtCraftItems>,
-        
-        loader:()=>fetch('https://assaiment10-backend.vercel.app/allartandcraftitems')
+        element:<PrivetRoute><AllArtCraftItems></AllArtCraftItems></PrivetRoute>
         
       },{
         path:'/addcraftitem',
@@ -56,8 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allartandcraftitems/:craftID",
-        element:<PrivetRoute><SingleCarft></SingleCarft></PrivetRoute>,
-        loader:({params})=>fetch(`https://assaiment10-backend.vercel.app/allartandcraftitems/${params.craftID}`)
+        element:<PrivetRoute><SingleCarft></SingleCarft></PrivetRoute>
       },
       {
         path: "/myartandcraftlist/:craftID",
@@ -67,6 +65,11 @@ const router = createBrowserRouter([
       {
         path: "/subcategory/:CategoryName",
         element:<SubCategoryDetails></SubCategoryDetails>,
+        
+      } ,
+      {
+        path: "/page",
+        element:<Pagination/>,
         
       } 
     ]
