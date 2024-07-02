@@ -1,3 +1,12 @@
+
+1) install node moiule : npm i ;
+2) npm run dev ; 
+
+
+
+
+
+
 # Picassopallet
 
 Welcome to Picassopallet! This is a painting selling website where artists and art enthusiasts can come together to buy and sell paintings.
